@@ -1,0 +1,59 @@
+body{
+	color: white;
+	background-color: black;
+	background-image: url(../img/background.jpg);
+	background-repeat: no-repeat;
+}
+
+body a{
+	color: white;
+}
+
+header{
+	position: absolute;
+	top: 0px;
+	left: -3%;
+	width: 103%;
+	background-color: black;
+	background-image: url(../img/banniere.jpg);
+	background-repeat: no-repeat;
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+
+header img{
+	position: relative;
+	left: 5%;
+	width: 40%;
+	height: auto;
+	max-width: 595px;
+}
+
+#form{
+	position: float;
+	float: right;
+}
+
+#inscription{
+	position: float;
+	float: right;
+}
+
+#inscription p{
+	position: relative;
+	top: 20px;
+	right: 100%;
+}
+
+header form{
+	position: relative;
+	right: 50%;
+	top: 20px;
+}
+
+header form label{
+	display:block
+}
+header form input{
+	background-color: rgba(255,255,255, 0.5);
+	color: white;
+}
