@@ -28,6 +28,7 @@ Aucun film n'est pr&eacute;sent dans la base de donn&eacute;es.
 
 <article class="film">
 	<header>
+		<!-- TODO ajouter lien (Marc) -->
 		<?php echo $film->getTitre(); ?>
 	</header>
 	
