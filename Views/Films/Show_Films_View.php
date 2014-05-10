@@ -45,6 +45,10 @@ No film to show.
 			}
 		?>
 	</aside>
+	
+	<footer>
+		<a  href="./index.php?controller=Films&action=edit&id=<?php echo $this->film->getId(); ?>">Editer</a>
+	</footer>
 </article>
 
 <?php
