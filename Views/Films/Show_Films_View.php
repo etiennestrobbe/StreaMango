@@ -46,6 +46,54 @@ No film to show.
 		?>
 	</aside>
 	
+	<section>
+		<p>Ann&eacute;e : <?php echo $this->film->getAnnee(); ?></p>
+		<p>R&eacute;alisateur :
+			<?php if($this->film->getRealisateur()) { ?>
+			<a  href="./index.php?controller=Stars&action=show&id=<?php echo $this->film->getRealisateur()->getId(); ?>"><?php echo utf8_encode($this->film->getRealisateur()); ?></a>
+			<?php } else { ?>
+			R&eacute;alisateur inconnu.
+			<?php } ?>
+		</p>
+		<p>Style : <?php echo utf8_encode($this->film->getStyle()); ?></p>
+		<p>Langue : <?php echo utf8_encode($this->film->getLangue()); ?></p>
+		<h2>Description</h2>
+		<p><?php echo utf8_encode($this->film->getResume()); ?></p>
+		<h2>Acteurs</h2>
+		<p>
+			<?php
+				if(!count($this->film->getPersonnages())) {
+			?>
+			
+			Ce film n'a aucun personnage.<br /><br />
+			
+			<?php
+				}
+				else
+				{
+			?>			
+			<ul>
+			
+				<?php
+					foreach($this->film->getPersonnages() as $role){
+				?>
+					
+				<li>
+					<a  href="./index.php?controller=Stars&action=show&id=<?php echo $role->acteur->getId(); ?>"><?php echo utf8_encode($role->acteur); ?></a> : <?php echo utf8_encode($role->nom); ?>
+				</li>
+				
+				<?php
+					}
+				?>
+			
+			</ul>
+			
+			<?php
+				}
+			?>
+		</p>
+	</section>
+	
 	<footer>
 		<a  href="./index.php?controller=Films&action=edit&id=<?php echo $this->film->getId(); ?>">Editer</a>
 	</footer>
