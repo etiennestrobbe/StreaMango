@@ -30,6 +30,7 @@
 			
 			foreach($films as $key => $film) {
 				if($film->getId() == $params["id"]) {
+					$film->affiches = Nf_FilmManagement::getInstance()->getAffiches($film);
 					break;
 				}
 			}
