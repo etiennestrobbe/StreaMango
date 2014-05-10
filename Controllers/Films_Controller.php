@@ -25,8 +25,19 @@
 			$view->display();
 		}
 
-		public function show($film) {
-			// TODO (Marc)
+		public function show($params) {
+			$films = Nf_FilmManagement::getInstance()->getFilms();
+			
+			foreach($films as $key => $film) {
+				if($film->getId() == $params["id"]) {
+					break;
+				}
+			}
+
+			$viewparams["film"] = $film;
+
+			$view = new Show_Films_View($viewparams);
+			$view->display();
 		}
 	}
 ?>
