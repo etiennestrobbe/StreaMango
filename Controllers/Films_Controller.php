@@ -28,6 +28,7 @@
 		public function show($params) {
 			$film = Nf_FilmManagement::getInstance()->idToFilm($params["id"]);
 			$film->affiches = Nf_FilmManagement::getInstance()->getAffiches($film);
+			$film->commentaires = Nf_CommNoteManagement::getInstance()->getCommentairesParFilm($film);
 
 			$viewparams["film"] = $film;
 
