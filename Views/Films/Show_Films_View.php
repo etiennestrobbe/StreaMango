@@ -93,15 +93,58 @@ No film to show.
 			?>
 		</p>
 	</section>
+
+	<section class="commentairenote">
+		<!-- TODO (Marc) -->
+	</section>
 	
 	<footer>
 		<a  href="./index.php?controller=Films&action=edit&id=<?php echo $this->film->getId(); ?>">Editer</a>
 	</footer>
 </article>
 
+<article class="commentaires">
+	<h2>Commentaires :</h2>
+	<p>
+		<?php
+			if(!count($this->film->commentaires)) {
+		?>
+		
+		Ce film n'a aucun commentaire.<br /><br />
+		
+		<?php
+			}
+			else
+			{
+		?>			
+		<ul>
+		
+			<?php
+				foreach($this->film->commentaires as $commentaire){
+			?>
+				
+			<li>
+				!
+				<!--
+				<a  href="./index.php?controller=Stars&action=show&id=<?php //echo $role->acteur->getId(); ?>"><?php //echo utf8_encode($role->acteur); ?></a> : <?php //echo utf8_encode($role->nom); ?>
+				-->
+			</li>
+			
+			<?php
+				}
+			?>
+		
+		</ul>
+		
+		<?php
+			}
+		?>
+	</p>
+	<!-- TODO (Marc) -->
+</article>
+
 <?php
 			}
-			// TODO (Marc)
 			$content = ob_get_contents();
 			ob_end_clean();
 			
