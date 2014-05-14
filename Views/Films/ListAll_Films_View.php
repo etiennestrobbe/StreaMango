@@ -28,7 +28,7 @@ Aucun film n'est pr&eacute;sent dans la base de donn&eacute;es.
 
 <article class="film">
 	<header>
-		<?php echo $film->getTitre(); ?>
+		<a href="./index.php?controller=Films&action=show&id=<?php echo $film->getId(); ?>"><?php echo $film->getTitre(); ?></a>
 	</header>
 	
 	<aside>
