@@ -33,7 +33,7 @@ No film to show.
 			if($this->film->affiches) {
 			
 				foreach($this->film->affiches as $affiche) {
-				
+
 		?>
 		
 				<img src="<?php echo $affiche->getSrc(); ?>" />
