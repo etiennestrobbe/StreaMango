@@ -26,14 +26,8 @@
 		}
 
 		public function show($params) {
-			$films = Nf_FilmManagement::getInstance()->getFilms();
-			
-			foreach($films as $key => $film) {
-				if($film->getId() == $params["id"]) {
-					$film->affiches = Nf_FilmManagement::getInstance()->getAffiches($film);
-					break;
-				}
-			}
+			$film = Nf_FilmManagement::getInstance()->idToFilm($params["id"]);
+			$film->affiches = Nf_FilmManagement::getInstance()->getAffiches($film);
 
 			$viewparams["film"] = $film;
 
