@@ -103,7 +103,7 @@ No film to show.
 	</footer>
 </article>
 
-<article class="commentaires">
+<article class="film">
 	<h2>Commentaires :</h2>
 	<p>
 		<?php
@@ -124,10 +124,7 @@ No film to show.
 			?>
 				
 			<li>
-				!
-				<!--
-				<a  href="./index.php?controller=Stars&action=show&id=<?php //echo $role->acteur->getId(); ?>"><?php //echo utf8_encode($role->acteur); ?></a> : <?php //echo utf8_encode($role->nom); ?>
-				-->
+				<a href="./index.php?controller=Users&action=show&id=<?php echo $commentaire->getAuteur()->getId(); ?>"><?php echo utf8_encode($commentaire->getAuteur()->getPrenom().' '.$commentaire->getAuteur()->getNom()); ?></a> : <?php echo utf8_encode($commentaire->getCommentaire()); ?>
 			</li>
 			
 			<?php
@@ -140,7 +137,6 @@ No film to show.
 			}
 		?>
 	</p>
-	<!-- TODO (Marc) -->
 </article>
 
 <?php
