@@ -24,5 +24,12 @@
 				$view = new ListAll_Films_View($viewparams);
 				$view->display();
 			}
+			
+			public function edit($params) {
+				$film = Nf_FilmManagement::getInstance()->idToFilm($params["id"]);
+				//$viewparams["films"] = $film;
+				$view = new Edit_Films_View($film);
+				$view->display();
+			}
 	}
 ?>
