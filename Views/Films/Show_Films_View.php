@@ -95,6 +95,10 @@ No film to show.
 	</section>
 
 	<section class="commentairenote">
+		<form>
+			<b>Commenter : </b><input type="text" size="50"><br/>
+			<b>Note : </b><input type="radio"><input type="radio"><input type="radio"><input type="radio"><input type="radio">
+		</form>
 		<!-- TODO (Marc) -->
 	</section>
 	
