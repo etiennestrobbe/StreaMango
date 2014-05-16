@@ -16,10 +16,47 @@
 		Modifier le film 
 		<?php echo $this->film->getTitre(); ?>
 	</header> 
-	Title :
-	<input type="title" name="title"><br>
+	<form>
+	<table>
+   <tr>
+       <td><label for="title">Titre :</label></td>
+       <td><input type="text" name="title" value='<?php echo $this->film->getTitre(); ?>'></td>
+   </tr>
+   <tr>
+       <td><label for="year">Année :</label></td>
+       <td><input type="text" name="year" value='<?php echo $this->film->getAnnee(); ?>'></td>
+   </tr>
+     <tr>
+       <td><label for="style">Style :</label></td>
+       <td><input type="text" name="style" value='<?php echo $this->film->getStyle(); ?>'></td>
+   </tr>
+   <tr>
+       <td><label for="lang">Langue :</label></td>
+       <td><input type="text" name="lang" value='<?php echo $this->film->getLangue(); ?>'></td>
+   </tr>
+     <tr>
+       <td><label for="desc">Description :</label></td>
+       <td><textarea name="desc" cols="70" rows="7"><?php echo $this->film->getResume(); ?></textarea></td>
+   </tr>
+</table>
+	<br>
+	Ajouter / Supprimer un acteur<br>
+	Réalisateur
+	</form>
 	<footer>
 		<input type="submit">
+		
+		<?php
+			/*$title = $_POST['title'];
+			$year = $_POST['year'];
+			$style = $_POST['style'];
+			$lang = $_POST['lang'];
+			$desc = $_POST['desc']; 
+	
+			if ($_POST['submit']) {
+				echo '<p>Your message has been sent!</p>';
+			}*/
+		?>
 	</footer>
 </article>
 <?php		
