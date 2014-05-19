@@ -1,4 +1,4 @@
-<header>
+<banniere>
 
 
 <div id="form">
@@ -20,4 +20,4 @@
 
 <img src="img/logo.png" />
 
-</header>
+</banniere>

@@ -2,14 +2,14 @@ body{
 	color: white;
 	background-color: black;
 	background-image: url(../img/background.jpg);
-	background-repeat: no-repeat;
+	background-repeat: no-repeat;clear: both;
 }
 
 body a{
 	color: white;
 }
 
-header{
+banniere{
 	position: absolute;
 	top: 0px;
 	left: -3%;
@@ -20,7 +20,7 @@ header{
 	box-shadow: 0px 0px 3px #FFFFFF;
 }
 
-header img{
+banniere img{
 	position: relative;
 	left: 5%;
 	width: 40%;
@@ -44,16 +44,52 @@ header img{
 	right: 100%;
 }
 
-header form{
+banniere form{
 	position: relative;
 	right: 50%;
 	top: 20px;
 }
 
-header form label{
+banniere form label{
 	display:block
 }
-header form input{
+banniere form input{
 	background-color: rgba(255,255,255, 0.5);
 	color: white;
+}
+#films{
+	position: relative;
+	top: 100px;
+	left: 3%;
+	width: 95%;
+}
+
+article.film {
+	position: float;
+	float: left;
+	margin: 10px;
+	width : 120px;
+	height: 180px;
+	background-color: black;
+	box-shadow: 1px 0px 10px white;
+}
+
+article.film header {
+	position: relative;
+	top: 0px;
+	color: white;
+	text-align: center;
+	text-shadow: 2px 2px 2px black, -2px -2px 3px black;
+	text-shadow: 2px 1px 2px #000, 4px 3px 3px rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.5);
+	box-shadow: -1px 0px 10px white;
+	padding: 2px;
+	z-index : 2;
+}
+article.film aside img {
+	position: absolute;
+	top: 10px;
+	width : 120px;
+	height: 180px;
+	z-index: 1;
 }
