@@ -1,3 +1,6 @@
+/*
+GENERAL
+*/
 body{
 	color: white;
 	background-color: black;
@@ -14,9 +17,10 @@ banniere{
 	top: 0px;
 	left: -3%;
 	width: 103%;
-	background-color: black;
+	height: 160px;
 	background-image: url(../img/banniere.jpg);
 	background-repeat: no-repeat;
+	background-color: black;
 	box-shadow: 0px 0px 3px #FFFFFF;
 }
 
@@ -46,22 +50,77 @@ banniere img{
 
 banniere form{
 	position: relative;
-	right: 50%;
+	right: 10px;
 	top: 20px;
 }
 
-banniere form label{
+form label{
 	display:block
 }
-banniere form input{
+form input{
 	background-color: rgba(255,255,255, 0.5);
 	color: white;
 }
+
+nav{
+	position: relative;
+	width: 70%;
+	left: 15%;
+	top: 160px;
+	padding: 10px;
+	padding-right: 25px;
+	background-color: rgba(0,0,0, 0.8);
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+
+nav img{
+	position: float;
+	float: right;
+}
+
+nav a {
+	font-size: 200%;
+    text-decoration: none;
+	padding-right: 8%;
+	padding-left:  8%;
+}
+
+#barre-recherche{
+	position: relative;
+	width: 70%;
+	left: 15%;
+	top: 170px;
+	height: 40px;
+	padding: 10px;
+	padding-right: 25px;
+	background-color: rgba(0,0,0, 0.8);
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+
+#barre-recherche img{
+	position: float;
+	float: right;
+}
+
+/*
+FILMS
+*/
+
 #films{
 	position: relative;
-	top: 100px;
-	left: 3%;
-	width: 95%;
+	width: 70%;
+	left: 15%;
+	top: 180px;
+	padding: 10px;
+	padding-right: 25px;
+	background-color: rgba(0,0,0, 0.8);
+	background-attachment:fixed;
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+#films:after {
+  display: block;
+  content: "";
+  clear: both;
 }
 
 article.film {
@@ -77,7 +136,7 @@ article.film {
 article.film header {
 	visibility: hidden;
 	position: relative;
-	top: 0px;
+	top: -185px;
 	color: white;
 	text-align: center;
 	text-shadow: 2px 2px 2px black, -2px -2px 3px black;
@@ -93,8 +152,8 @@ article.film:hover header{
 }
 
 article.film aside img {
-	position: absolute;
-	top: 10px;
+	position: relative;
+	top: 0px;
 	width : 120px;
 	height: 180px;
 	z-index: 1;
