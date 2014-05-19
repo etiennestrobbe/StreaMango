@@ -75,6 +75,7 @@ article.film {
 }
 
 article.film header {
+	visibility: hidden;
 	position: relative;
 	top: 0px;
 	color: white;
@@ -86,6 +87,11 @@ article.film header {
 	padding: 2px;
 	z-index : 2;
 }
+
+article.film:hover header{
+	visibility: visible;
+}
+
 article.film aside img {
 	position: absolute;
 	top: 10px;
