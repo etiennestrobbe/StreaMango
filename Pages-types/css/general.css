@@ -29,8 +29,9 @@ banniere{
 
 banniere img{
 	position: relative;
+	top: -5px;
 	left: 5%;
-	width: 40%;
+	width: 35%;
 	height: auto;
 	max-width: 595px;
 }
@@ -71,10 +72,10 @@ form input{
 nav{
 	position: fixed;
 	min-width: 500px;
-	z-index: 11;
+	z-index: 9;
 	width: 80%;
 	left: 5%;
-	top: 150px;
+	top: 160px;
 	padding: 10px;
 	padding-right: 25px;
 	background-image: url(../img/banniere.jpg);
@@ -106,9 +107,9 @@ nav a {
 	z-index: 11;
 	width: 80%;
 	left: 5%;
-	top: 205px;
-	height: 35px;
+	top: 215px;
 	padding: 10px;
+	padding-bottom: 20px;
 	padding-right: 25px;
 	background-image: url(../img/banniere.jpg);
 	background-repeat: no-repeat;
@@ -130,6 +131,12 @@ nav a {
 	width: 300px;
 }
 
+#films:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
 #loupe{
 	left: 10px;
 	box-shadow: -1px 0px 10px white;
@@ -143,7 +150,7 @@ FILMS
 	position: relative;
 	width: 70%;
 	left: 15%;
-	top: 240px;
+	top: 260px;
 	padding: 10px;
 	padding-top: 20px;
 	padding-right: 25px;
