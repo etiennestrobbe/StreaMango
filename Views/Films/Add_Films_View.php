@@ -1,8 +1,7 @@
 <?php
-	class Edit_Films_View extends Main_Global_View {
-		private $film;
+	class Add_Films_View extends Main_Global_View {
 		
-		public function Edit_Films_View($params) {
+		public function Add_Films_View($params) {
 			$filmscss = array("films.css");
 			$this->setCSS($filmscss);
 			$this->film = $params;
@@ -13,39 +12,34 @@
 ?>
 <article class="film">
 	<header>
-		Modifier le film 
-		<?php echo $this->film->getTitre(); ?>
+		Ajouter un film
 	</header> 
 	<form>
 	<table>
    <tr>
        <td><label for="title">Titre :</label></td>
-       <td><input type="text" name="title" value='<?php echo $this->film->getTitre(); ?>'></td>
+       <td><input type="text" name="title" value=''></td>
    </tr>
    <tr>
        <td><label for="year">Année :</label></td>
-       <td><input type="text" name="year" value='<?php echo $this->film->getAnnee(); ?>'></td>
+       <td><input type="text" name="year" value=''></td>
    </tr>
      <tr>
        <td><label for="style">Style :</label></td>
-       <td><input type="text" name="style" value='<?php echo $this->film->getStyle(); ?>'></td>
+       <td><input type="text" name="style" value=''></td>
    </tr>
    <tr>
        <td><label for="lang">Langue :</label></td>
-       <td><input type="text" name="lang" value='<?php echo $this->film->getLangue(); ?>'></td>
+       <td><input type="text" name="lang" value=''></td>
    </tr>
      <tr>
        <td><label for="desc">Description :</label></td>
-       <td><textarea name="desc" cols="70" rows="7"><?php echo $this->film->getResume(); ?></textarea></td>
+       <td><textarea name="desc" cols="70" rows="7"></textarea></td>
    </tr>
 </table>
 	<br>
-	<?php 
-	$id = $this->film->getId();
-	echo $this->film->getRealisateurFromFilm($id);?>
 	Réalisateur
 	Ajouter / Supprimer un acteur<br>
-	
 	</form>
 	<footer>
 		<input type="submit">

@@ -31,5 +31,10 @@
 				$view = new Edit_Films_View($film);
 				$view->display();
 			}
+			
+			public function add($params) {
+				$view = new Add_Films_View($params);
+				$view->display();
+			}
 	}
 ?>
