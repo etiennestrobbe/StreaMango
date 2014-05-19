@@ -5,7 +5,7 @@ body{
 	color: white;
 	background-color: black;
 	background-image: url(../img/background.png);
-	background-repeat: no-repeat;
+	background-repeat: repeat;
 	background-attachment: fixed;
 }
 
@@ -14,12 +14,14 @@ body a{
 }
 
 banniere{
-	position: absolute;
+	position: fixed;
+	z-index: 10;
 	top: 0px;
 	left: -3%;
 	width: 103%;
 	height: 160px;
-	background-image: url(../img/banniere.png);
+	padding-left: 30px;
+	background-image: url(../img/banniere.jpg);
 	background-repeat: no-repeat;
 	background-color: black;
 	box-shadow: 0px 0px 3px #FFFFFF;
@@ -45,32 +47,39 @@ banniere img{
 
 #inscription p{
 	position: relative;
-	top: 20px;
-	right: 100%;
+	top: -100px;
+	right: 90%;
 }
 
 banniere form{
 	position: relative;
-	right: 10px;
+	z-index: 12;
+	right: 40px;
 	top: 20px;
 }
 
 form label{
-	display:block
+	display: block;
+	z-index: 12;
 }
 form input{
 	background-color: rgba(255,255,255, 0.5);
 	color: white;
+	z-index: 12;
 }
 
 nav{
-	position: relative;
-	width: 70%;
-	left: 15%;
-	top: 160px;
+	position: fixed;
+	min-width: 500px;
+	z-index: 11;
+	width: 80%;
+	left: 5%;
+	top: 150px;
 	padding: 10px;
 	padding-right: 25px;
-	background-color: rgba(0,0,0, 0.5);
+	background-image: url(../img/banniere.jpg);
+	background-repeat: no-repeat;
+	background-color: black;
 	box-shadow: 0px 0px 3px #FFFFFF;
 }
 
@@ -83,7 +92,6 @@ nav img{
 nav a {
 	font-size: 200%;
     text-decoration: none;
-	padding-right: 5%;
 	padding-left: 5%;
 	color: #fff; 
 	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 
@@ -93,14 +101,18 @@ nav a {
 }
 
 #barre-recherche{
-	position: relative;
-	width: 70%;
-	left: 15%;
-	top: 170px;
+	position: fixed;
+	min-width: 500px;
+	z-index: 11;
+	width: 80%;
+	left: 5%;
+	top: 205px;
 	height: 35px;
 	padding: 10px;
 	padding-right: 25px;
-	background-color: rgba(0,0,0, 0.5);
+	background-image: url(../img/banniere.jpg);
+	background-repeat: no-repeat;
+	background-color: black;
 	box-shadow: 0px 0px 3px #FFFFFF;
 }
 
@@ -131,8 +143,9 @@ FILMS
 	position: relative;
 	width: 70%;
 	left: 15%;
-	top: 180px;
+	top: 240px;
 	padding: 10px;
+	padding-top: 20px;
 	padding-right: 25px;
 	background-color: rgba(0,0,0, 0.5);
 	background-attachment:fixed;
