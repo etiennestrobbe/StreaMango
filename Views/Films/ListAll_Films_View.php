@@ -31,74 +31,21 @@ Aucun film n'est pr&eacute;sent dans la base de donn&eacute;es.
 		<a href="./index.php?controller=Films&action=show&id=<?php echo $film->getId(); ?>"><?php echo $film->getTitre(); ?></a>
 	</header>
 	
-	<aside>
+	<section>
 		<?php
 			if($film->affiches) {
-			
-				foreach($film->affiches as $affiche) {
 				
 		?>
 		
-				<img src="<?php echo $affiche->getSrc(); ?>" />
+				<img src="<?php echo $film->affiches[0]->getSrc(); ?>" />
 		
 		<?php
-					
-				}
 				
 			}
 		?>
-	</aside>
-	
-	<section>
-		<p>Ann&eacute;e : <?php echo $film->getAnnee(); ?></p>
-		<p>R&eacute;alisateur :
-			<?php if($film->getRealisateur()) { ?>
-			<a  href="./index.php?controller=Stars&action=show&id=<?php echo $film->getRealisateur()->getId(); ?>"><?php echo utf8_encode($film->getRealisateur()); ?></a>
-			<?php } else { ?>
-			R&eacute;alisateur inconnu.
-			<?php } ?>
-		</p>
-		<p>Style : <?php echo utf8_encode($film->getStyle()); ?></p>
-		<p>Langue : <?php echo utf8_encode($film->getLangue()); ?></p>
-		<h2>Description</h2>
-		<p><?php echo utf8_encode($film->getResume()); ?></p>
-		<h2>Acteurs</h2>
-		<p>
-			<?php
-				if(!count($film->getPersonnages())) {
-			?>
-			
-			Ce film n'a aucun personnage.<br /><br />
-			
-			<?php
-				}
-				else
-				{
-			?>			
-			<ul>
-			
-				<?php
-					foreach($film->getPersonnages() as $role){
-				?>
-					
-				<li>
-					<a  href="./index.php?controller=Stars&action=show&id=<?php echo $role->acteur->getId(); ?>"><?php echo utf8_encode($role->acteur); ?></a> : <?php echo utf8_encode($role->nom); ?>
-				</li>
-				
-				<?php
-					}
-				?>
-			
-			</ul>
-			
-			<?php
-				}
-			?>
-		</p>
 	</section>
 	
 	<footer>
-		<a  href="./index.php?controller=Films&action=edit&id=<?php echo $film->getId(); ?>">Editer</a>
 	</footer>
 </article>
 
