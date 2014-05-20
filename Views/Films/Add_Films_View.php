@@ -14,7 +14,7 @@
 	<header>
 		Ajouter un film
 	</header> 
-	<form>
+	<form action=""  method="POST">
 	<table>
    <tr>
        <td><label for="title">Titre :</label></td>
@@ -43,18 +43,7 @@
 	</form>
 	<footer>
 		<input type="submit">
-		
-		<?php
-			/*$title = $_POST['title'];
-			$year = $_POST['year'];
-			$style = $_POST['style'];
-			$lang = $_POST['lang'];
-			$desc = $_POST['desc']; 
-	
-			if ($_POST['submit']) {
-				echo '<p>Your message has been sent!</p>';
-			}*/
-		?>
+			
 	</footer>
 </article>
 <?php		

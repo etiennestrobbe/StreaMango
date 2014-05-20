@@ -16,51 +16,42 @@
 		Modifier le film 
 		<?php echo $this->film->getTitre(); ?>
 	</header> 
-	<form>
-	<table>
-   <tr>
-       <td><label for="title">Titre :</label></td>
-       <td><input type="text" name="title" value='<?php echo $this->film->getTitre(); ?>'></td>
-   </tr>
-   <tr>
-       <td><label for="year">Année :</label></td>
-       <td><input type="text" name="year" value='<?php echo $this->film->getAnnee(); ?>'></td>
-   </tr>
-     <tr>
-       <td><label for="style">Style :</label></td>
-       <td><input type="text" name="style" value='<?php echo $this->film->getStyle(); ?>'></td>
-   </tr>
-   <tr>
-       <td><label for="lang">Langue :</label></td>
-       <td><input type="text" name="lang" value='<?php echo $this->film->getLangue(); ?>'></td>
-   </tr>
-     <tr>
-       <td><label for="desc">Description :</label></td>
-       <td><textarea name="desc" cols="70" rows="7"><?php echo $this->film->getResume(); ?></textarea></td>
-   </tr>
-</table>
-	<br>
-	<?php 
-	$id = $this->film->getId();
-	echo $this->film->getRealisateurFromFilm($id);?>
-	Réalisateur
-	Ajouter / Supprimer un acteur<br>
-	
+	<form action=""  method="POST">
+		<label for="title">Titre :</label><br>
+		<input type="text" name="title" value='<?php echo $this->film->getTitre(); ?>'><br>
+	   
+		<label for="year">Année :</label><br>
+		<input type="text" name="year" value='<?php echo $this->film->getAnnee(); ?>'><br>
+	   
+		<label for="style">Style :</label><br>
+		<input type="text" name="style" value='<?php echo $this->film->getStyle(); ?>'><br>
+		
+		<label for="lang">Langue :</label><br>
+		<input type="text" name="lang" value='<?php echo $this->film->getLangue(); ?>'><br>
+
+		<label for="desc">Description :</label><br>
+		<textarea name="desc" cols="70" rows="7"><?php echo $this->film->getResume(); ?></textarea><br>
+		
+		<label for="real">Realisateur :</label><br>
+		<input type="text" name="real" value='<?php echo($this->film->getRealisateur()->getPrenom(). " " .$this->film->getRealisateur()->getNom());?>'><br>
+	   
+		 <label for="real">Acteurs/Personnages :</label><br>			
+		<ul>
+			<?php 
+				foreach($this->film->getPersonnages() as $role){
+			?>
+			<li>
+				<input type="text" name="actor" value='<?php echo(utf8_encode($role->acteur->getPrenom()) . " " . utf8_encode($role->acteur->getNom())); ?>'>
+				<input type="text" name="role" value='<?php echo utf8_encode($role->nom); ?>'><br>
+			</li>
+			<?php
+				}
+			?>
+		</ul>
+		<br>
 	</form>
 	<footer>
-		<input type="submit">
-		
-		<?php
-			/*$title = $_POST['title'];
-			$year = $_POST['year'];
-			$style = $_POST['style'];
-			$lang = $_POST['lang'];
-			$desc = $_POST['desc']; 
-	
-			if ($_POST['submit']) {
-				echo '<p>Your message has been sent!</p>';
-			}*/
-		?>
+		<input type="submit">		
 	</footer>
 </article>
 <?php		
