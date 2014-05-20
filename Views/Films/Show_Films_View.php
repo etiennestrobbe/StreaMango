@@ -93,15 +93,58 @@ No film to show.
 			?>
 		</p>
 	</section>
+
+	<section class="commentairenote">
+		<form>
+			<b>Commenter : </b><input type="text" size="50"><br/>
+			<b>Note : </b><input type="radio"><input type="radio"><input type="radio"><input type="radio"><input type="radio">
+		</form>
+		<!-- TODO (Marc) -->
+	</section>
 	
 	<footer>
 		<a  href="./index.php?controller=Films&action=edit&id=<?php echo $this->film->getId(); ?>">Editer</a>
 	</footer>
 </article>
 
+<article class="film">
+	<h2>Commentaires :</h2>
+	<p>
+		<?php
+			if(!count($this->film->commentaires)) {
+		?>
+		
+		Ce film n'a aucun commentaire.<br /><br />
+		
+		<?php
+			}
+			else
+			{
+		?>			
+		<ul>
+		
+			<?php
+				foreach($this->film->commentaires as $commentaire){
+			?>
+				
+			<li>
+				<a href="./index.php?controller=Users&action=show&id=<?php echo $commentaire->getAuteur()->getId(); ?>"><?php echo utf8_encode($commentaire->getAuteur()->getPrenom().' '.$commentaire->getAuteur()->getNom()); ?></a> : <?php echo utf8_encode($commentaire->getCommentaire()); ?>
+			</li>
+			
+			<?php
+				}
+			?>
+		
+		</ul>
+		
+		<?php
+			}
+		?>
+	</p>
+</article>
+
 <?php
 			}
-			// TODO (Marc)
 			$content = ob_get_contents();
 			ob_end_clean();
 			

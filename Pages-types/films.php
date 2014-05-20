@@ -19,35 +19,37 @@ require_once("barre-recherche.php");
 
 <section id="films">
 
-	<article id="transformers3">
-	<h1>Transformers 3</h1>
-	<img src="img/ressourcesTMP/transformers3.png"/>
-	</article>
-	
-	<article id="lordoftherings">
-	<h1>Lord of the rings</h1>
-	<img src="img/ressourcesTMP/lordoftherings.png"/>
+
+	<article class="film">
+	<aside><img src="img/1.jpg" /></aside>
+	<header> Transformers 3	</header>
 	</article>
 
-	<article id="matrix">
-	<h1>Matrix</h1>
-	<img src="img/ressourcesTMP/matrix.png"/>
+	<article class="film">
+	<aside><img src="img/2.jpg" /></aside>
+	<header> Lord of the Rings	</header>
+	</article>
+
+	<article class="film">
+	<aside><img src="img/3.jpg" /></aside>
+	<header> Matrix </header>
 	</article>
 	
-	<article id="marsupilami">
-	<h1>Marsupilami</h1>
-	<img src="img/ressourcesTMP/marsupilami.png"/>
+	<article class="film">
+	<aside><img src="img/4.jpg" /></aside>
+	<header> Marsupilami </header>
 	</article>
 	
-	<article id="supermanmanofsteel">
-	<h1>Superman - Man of steel</h1>
-	<img src="img/ressourcesTMP/supermanmanofsteel.png"/>
+	<article class="film">
+	<aside><img src="img/5.jpg" /></aside>
+	<header> Superman - Man of Steel </header>
 	</article>
 	
-	<article id="kindzadza">
-	<h1>KIN-DZA-DZA</h1>
-	<img src="img/ressourcesTMP/kindzadza.png"/>
+	<article class="film">
+	<aside><img src="img/6.jpg" /></aside>
+	<header> KIN-DZA-DZA </header>
 	</article>
+
 	
 </section>
 

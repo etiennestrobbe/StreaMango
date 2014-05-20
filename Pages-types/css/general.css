@@ -1,29 +1,37 @@
+/*
+GENERAL
+*/
 body{
 	color: white;
 	background-color: black;
-	background-image: url(../img/background.jpg);
-	background-repeat: no-repeat;
+	background-image: url(../img/background.png);
+	background-repeat: repeat;
+	background-attachment: fixed;
 }
 
 body a{
 	color: white;
 }
 
-header{
-	position: absolute;
+banniere{
+	position: fixed;
+	z-index: 10;
 	top: 0px;
 	left: -3%;
 	width: 103%;
-	background-color: black;
+	height: 160px;
+	padding-left: 30px;
 	background-image: url(../img/banniere.jpg);
 	background-repeat: no-repeat;
+	background-color: black;
 	box-shadow: 0px 0px 3px #FFFFFF;
 }
 
-header img{
+banniere img{
 	position: relative;
+	top: -5px;
 	left: 5%;
-	width: 40%;
+	width: 35%;
 	height: auto;
 	max-width: 595px;
 }
@@ -40,20 +48,215 @@ header img{
 
 #inscription p{
 	position: relative;
-	top: 20px;
-	right: 100%;
+	top: -100px;
+	right: 90%;
 }
 
-header form{
+banniere form{
 	position: relative;
-	right: 50%;
+	z-index: 12;
+	right: 40px;
 	top: 20px;
 }
 
-header form label{
-	display:block
+form label{
+	display: block;
+	z-index: 12;
 }
-header form input{
+form input{
 	background-color: rgba(255,255,255, 0.5);
 	color: white;
+	z-index: 12;
+}
+
+nav{
+	position: float;
+	float: top;
+	min-width: 500px;
+	z-index: 9;
+	width: 80%;
+	margin-left: 5%;
+	margin-top: 160px;
+	padding: 10px;
+	padding-right: 25px;
+	background-image: url(../img/banniere.jpg);
+	background-repeat: no-repeat;
+	background-color: black;
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+
+nav img{
+	position: relative;
+	top: 5px;
+	left: 5%;
+	box-shadow: -1px 0px 10px white;
+}
+
+nav a {
+	font-size: 200%;
+    text-decoration: none;
+	padding-left: 5%;
+	color: #fff; 
+	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 
+	0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 
+	0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135; 
+	font: 'ChunkFiveRegular';
+}
+
+#barre-recherche{
+	position: float;
+	float: top;
+	min-width: 500px;
+	z-index: 9;
+	width: 80%;
+	margin-left: 5%;
+	padding: 10px;
+	padding-left: 0px;
+	padding-bottom: 20px;
+padding-right: 35px;
+	background-image: url(../img/banniere.jpg);
+	background-repeat: no-repeat;
+	background-color: black;
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+
+#plus{
+	position: float;
+	float: right;
+	box-shadow: -1px 0px 10px white;
+}
+
+#barre-recherche form input{
+	position: float;
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 300px;
+}
+
+#barre-recherche:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+#loupe{
+	position: float;
+	float: left;
+	margin-left: 10px;
+	box-shadow: -1px 0px 10px white;
+}
+
+/*
+FILMS
+*/
+
+#films{
+	position: relative;
+	width: 70%;
+	left: 15%;
+	padding: 10px;
+	padding-top: 20px;
+	padding-right: 25px;
+	background-color: rgba(0,0,0, 0.5);
+	background-attachment:fixed;
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+#films:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+article.film {
+	position: float;
+	float: left;
+	margin: 10px;
+	width : 120px;
+	height: 180px;
+	background-color: black;
+	box-shadow: 1px 0px 10px white;
+}
+
+article.film header {
+	visibility: hidden;
+	position: relative;
+	top: -185px;
+	color: white;
+	text-align: center;
+	text-shadow: 2px 2px 2px black, -2px -2px 3px black;
+	text-shadow: 2px 1px 2px #000, 4px 3px 3px rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.5);
+	box-shadow: -1px 0px 10px white;
+	padding: 2px;
+	z-index : 2;
+}
+
+article.film:hover header{
+	visibility: visible;
+}
+
+article.film aside img {
+	position: relative;
+	top: 0px;
+	width : 120px;
+	height: 180px;
+	z-index: 1;
+}
+
+/*
+ACTEURS
+*/
+
+#acteurs{
+	position: relative;
+	width: 70%;
+	left: 15%;
+	padding: 10px;
+	padding-top: 20px;
+	padding-right: 25px;
+	background-color: rgba(0,0,0, 0.5);
+	background-attachment:fixed;
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+#acteurs:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+article.acteur {
+	position: float;
+	float: left;
+	margin: 10px;
+	width : 120px;
+	height: 180px;
+	background-color: black;
+	box-shadow: 1px 0px 10px white;
+}
+
+article.acteur header {
+	visibility: hidden;
+	position: relative;
+	top: -185px;
+	color: white;
+	text-align: center;
+	text-shadow: 2px 2px 2px black, -2px -2px 3px black;
+	text-shadow: 2px 1px 2px #000, 4px 3px 3px rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.5);
+	box-shadow: -1px 0px 10px white;
+	padding: 2px;
+	z-index : 2;
+}
+
+article.acteur:hover header{
+	visibility: visible;
+}
+
+article.acteur aside img {
+	position: relative;
+	top: 0px;
+	width : 120px;
+	height: 180px;
+	z-index: 1;
 }

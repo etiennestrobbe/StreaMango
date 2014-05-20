@@ -1,6 +1,7 @@
-<header>
+<banniere>
 
 
+<img src="img/logo.png" />
 <div id="form">
 	<form>
 		<label for="login">Login : </label>
@@ -18,6 +19,5 @@
 </div>
 
 
-<img src="img/logo.png" />
 
-</header>
+</banniere>
