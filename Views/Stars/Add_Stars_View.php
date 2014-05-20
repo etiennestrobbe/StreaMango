@@ -28,10 +28,9 @@ class Add_Stars_View extends Main_Global_View {
                 <header>
                     Ajouter une nouvelle star :
                 </header>
-                <form action="" method="post">
+                <form action="index.php?controller=Stars&action=add_the_star" method="post" enctype="multipart/form-data">
                     <section class="portrait">
-                        <!-- TODO ajouter images -->
-                        <div class='file_upload' id='f1'><input name='file[]' type='file'/>1</div>
+                        <div class='url_img' id='f1'>Url d'une image<input name='url[]' type='text'/>1</div>
                         <div id='file_tools'>
                             <img src='./public/img/add.png' id='add_file' title='Add new input' style="width: 30px"/>
                             <img src='./public/img/remove.png' id='del_file' title='Delete' style="width: 30px"/>
@@ -44,7 +43,7 @@ class Add_Stars_View extends Main_Global_View {
                         insertInputText("Prénom","prenom");
                         insertInputText("Nationalité","nationalite");
                         insertInputText("Année de naissance","naissance");?>
-                        <input type="checkbox" id="check_mort" onclick="displayMort();"/>Décédé <p id="input_mort"></p>
+                        <input type="checkbox" id="check_mort" name="check_mort" onclick="displayMort();"/>Décédé <p id="input_mort"></p>
                         <p>Sexe
                             <select name="sexe">
                                 <option value="m">Homme</option>
@@ -64,7 +63,9 @@ class Add_Stars_View extends Main_Global_View {
                                     foreach ($this->films as $film) {
                                         if ($film->affiches) {
                                             ?>
-                                            <input type="checkbox" name="<?php echo $film->getId(); ?>">
+                                            <input type="checkbox" name="check_list_acteur[]" value="<?php echo $film->getId();?>">
+                                            <p>Role :<input type="text" name="role<?php echo $film->getId();?>"></p>
+                                            <!--<input type="checkbox" name="check_list_acteur[]" value="<?php/* echo $film->getId();*/?>">-->
                                             <?php
 
                                             foreach ($film->affiches as $affiche) {
@@ -85,7 +86,7 @@ class Add_Stars_View extends Main_Global_View {
 
 
                     </section>
-
+                    <!-- TODO check en JS si tous les truc sont bien remplis -->
                     <input type="submit" value="Ajouter"/>
                 </form>
 

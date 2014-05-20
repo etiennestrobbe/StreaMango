@@ -1,5 +1,7 @@
 <?php
+
 	session_start();
+    error_reporting(-1);
 	
 	require ('./global/GlobalVariables.php');
 	require ('./global/GlobalFunctions.php');

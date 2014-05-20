@@ -11,7 +11,7 @@ class Stars_Controller {
     /**
      * display a page to add a star
      */
-    public function add_star($param){
+    public function add_star(){
         $limit = 0;
         if(isset($params["limit"])) {
             $limit = (int) $params["limit"];
@@ -35,4 +35,64 @@ class Stars_Controller {
 
     }
 
-} 
+    public function add_the_star(){
+        /* Récupération des données $_POST */
+        $nom = $_POST["nom"];
+        $prenom = $_POST["prenom"];
+        $nationalite = strtoupper($_POST["nationalite"]);
+        $naissance = (int)$_POST["naissance"];
+        $sex = ($_POST["sexe"]=="f");
+
+
+
+        /* Init des DB */
+        $list_films = Nf_FilmManagement::getInstance();
+        $list_acteurs_reals = Nf_ActeurReaManagement::getInstance();
+
+
+        /* Init date dèces si checked */
+        if(isset($_POST["check_mort"])){
+            $date_mort = $_POST["deces"];
+        }
+
+
+        /* Creation de l'objet acteur */
+        $people = new Data_People($nom,$prenom,$naissance,$nationalite,$sex);
+
+        /* S'il est mort on ajoute sa date de mort */
+        if(isset($date_mort)){
+            $people->setMort($date_mort);
+        }
+        // Si la case acteur a été coché
+        //if(isset($_POST["acteur"])){
+        $acteur = new Data_Acteur($people);
+        $list_acteurs_reals->addActeur($acteur);
+        //}
+        // Si la case real a été coché
+        /*if(isset($_POST["real"])){
+            $real = new Data_Realisateur($people);
+        }*/
+
+        /* Recuperation image */
+        if(isset($_POST["url"])){
+            foreach($_POST["url"] as $key => $a_file){
+                $list_acteurs_reals->addPortraitAUnePersonne($acteur,$a_file);
+            }
+        }
+
+        /* Liaison de l'acteur aux films */
+        if(!empty($_POST["check_list_acteur"])){
+            foreach($_POST["check_list_acteur"] as $check){
+
+                $films_to_change  = $list_films->idToFilm($check);
+                $role = new Data_Role($nom,$acteur);
+                $list_films->addPersonnagesAuFilm($films_to_change,$role);
+            }
+
+        }
+
+        header('Location:index.php');
+
+    }
+
+}

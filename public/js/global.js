@@ -5,7 +5,7 @@ $(document).ready(function(){
 function displayMort(){
     var inputToChange = document.getElementById("input_mort");
     if(document.getElementById("check_mort").checked){
-        inputToChange.innerHTML = "<p>Date du décès<input type=\"text\" name=\"mort\"/></p>";
+        inputToChange.innerHTML = "<p>Date du décès<input type=\"text\" name=\"deces\"/></p>";
     }
     else{
         inputToChange.innerHTML = "";
@@ -16,7 +16,7 @@ $(document).ready(function(){
     var counter = 2;
     $('#del_file').hide();
     $('img#add_file').click(function(){
-        $('#file_tools').before('<div class="file_upload" id="f'+counter+'"><input name="file[]" type="file">'+counter+'</div>');
+        $('#file_tools').before('<div class="url_img" id="f'+counter+'">Url d\'une image<input name="url[]" type="text">'+counter+'</div>');
         $('#del_file').fadeIn(0);
         counter++;
     });
