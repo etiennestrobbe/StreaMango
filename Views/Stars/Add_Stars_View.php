@@ -5,9 +5,6 @@ class Add_Stars_View extends Main_Global_View {
 
     public function Add_Stars_View($viewparams)
     {
-        $filmscss = array("films.css");
-        $this->setCSS($filmscss);
-
         $this->films = $viewparams["films"];
     }
 
@@ -24,6 +21,7 @@ class Add_Stars_View extends Main_Global_View {
             }
             ?>
 
+        <section id="add_acteur">
             <article class="star">
                 <header>
                     Ajouter une nouvelle star :
@@ -147,7 +145,7 @@ class Add_Stars_View extends Main_Global_View {
 
 
 
-            </article>
+            </article></section>
 
         <?php
         $content = ob_get_contents();

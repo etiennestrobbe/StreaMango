@@ -4,8 +4,6 @@
 		private $films = array();
 		
 		public function ListAll_Films_View($viewparams) {
-			$filmscss = array("films.css");
-			$this->setCSS($filmscss);
 			
 			$this->films = $viewparams["films"];
 		}
@@ -13,6 +11,7 @@
 		public function mainContent() {
 			ob_start();
 ?>
+            <section id="films">
 
 <?php
 	if(! $this->films) {
@@ -20,38 +19,42 @@
 <article>
 Aucun film n'est pr&eacute;sent dans la base de donn&eacute;es.
 </article>
+        </section>
 <?php
 	} else {
 		
 		foreach($this->films as $film) {
 ?>
+            <article class="film">
 
-<article class="film">
-	<header>
-		<a href="./index.php?controller=Films&action=show&id=<?php echo $film->getId(); ?>"><?php echo $film->getTitre(); ?></a>
-	</header>
+		<aside>
+            <?php
+            if($film->affiches) {
+
+                ?>
+
+                <img src="<?php echo $film->affiches[0]->getSrc(); ?>" />
+
+            <?php
+
+            }
+            ?>
+		</aside>
+                <header>
+                    <a href="./index.php?controller=Films&action=show&id=<?php echo $film->getId(); ?>"><?php echo $film->getTitre(); ?></a>
+                </header>
+            </article>
+
+
 	
-	<section>
-		<?php
-			if($film->affiches) {
-				
-		?>
-		
-				<img src="<?php echo $film->affiches[0]->getSrc(); ?>" />
-		
-		<?php
-				
-			}
-		?>
-	</section>
-	
-	<footer>
-	</footer>
-</article>
+
 
 
 <?php
 		}
+        ?>
+        </section>
+        <?php
 	}
 ?>
 
