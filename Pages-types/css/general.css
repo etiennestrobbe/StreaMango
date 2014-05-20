@@ -70,12 +70,13 @@ form input{
 }
 
 nav{
-	position: fixed;
+	position: float;
+	float: top;
 	min-width: 500px;
 	z-index: 9;
 	width: 80%;
-	left: 5%;
-	top: 160px;
+	margin-left: 5%;
+	margin-top: 160px;
 	padding: 10px;
 	padding-right: 25px;
 	background-image: url(../img/banniere.jpg);
@@ -85,8 +86,9 @@ nav{
 }
 
 nav img{
-	position: absolute;
-	right: 5%;
+	position: relative;
+	top: 5px;
+	left: 5%;
 	box-shadow: -1px 0px 10px white;
 }
 
@@ -102,43 +104,46 @@ nav a {
 }
 
 #barre-recherche{
-	position: fixed;
+	position: float;
+	float: top;
 	min-width: 500px;
-	z-index: 11;
+	z-index: 9;
 	width: 80%;
-	left: 5%;
-	top: 215px;
+	margin-left: 5%;
 	padding: 10px;
+	padding-left: 0px;
 	padding-bottom: 20px;
-	padding-right: 25px;
+padding-right: 35px;
 	background-image: url(../img/banniere.jpg);
 	background-repeat: no-repeat;
 	background-color: black;
 	box-shadow: 0px 0px 3px #FFFFFF;
 }
 
-#barre-recherche img{
-	position: absolute;
-	right: 5%;
-	top: 10px;
+#plus{
+	position: float;
+	float: right;
 	box-shadow: -1px 0px 10px white;
 }
 
 #barre-recherche form input{
-	position: relative;
-	top: 5px;
-	left: 60px;
+	position: float;
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
 	width: 300px;
 }
 
-#films:after {
+#barre-recherche:after {
   display: block;
   content: "";
   clear: both;
 }
 
 #loupe{
-	left: 10px;
+	position: float;
+	float: left;
+	margin-left: 10px;
 	box-shadow: -1px 0px 10px white;
 }
 
@@ -150,7 +155,6 @@ FILMS
 	position: relative;
 	width: 70%;
 	left: 15%;
-	top: 260px;
 	padding: 10px;
 	padding-top: 20px;
 	padding-right: 25px;

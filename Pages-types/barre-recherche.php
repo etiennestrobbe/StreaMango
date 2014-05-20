@@ -3,5 +3,5 @@
 <form>
 	<input type="text" id="search" name="search"/>
 </form>
-<img src="img/ajouter.png"/>
+<img id="plus" src="img/ajouter.png"/>
 </section>
