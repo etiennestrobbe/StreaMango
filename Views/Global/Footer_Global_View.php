@@ -7,9 +7,6 @@
 ?>
 				</section>
 			</div>
-			<footer>
-			&copy Christian Brel - POO-IHM 2013-2014
-			</footer>
 	</body>
 </html>
 <?php			

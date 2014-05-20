@@ -43,7 +43,7 @@
 		*/
 		public function display() {
 			
-			$cssGlobal = array("global.css");
+			$cssGlobal = array("general.css");
 			$jsGlobal = array("jquery-2.1.0.min.js", "jquery.sticky.js", "global.js");
 			
 			$cssTotal = array_merge($cssGlobal, $this->css);
@@ -51,9 +51,15 @@
 			
 			
 			$header = new Header_Global_View($cssTotal, $jsTotal);
+			$ban = new Banniere_Global_View();
+			$nav = new Menu_Global_View();
+			$search = new Search_Global_View();
 			$footer = new Footer_Global_View();
 			
 			$content = $header->getHeader();
+			$content .= $ban->getBanniere();
+			$content .= $nav->getMenu();
+			$content .= $search->getSearch();
 			$content .= $this->mainContent();
 			$content .= $footer->getFooter();
 			

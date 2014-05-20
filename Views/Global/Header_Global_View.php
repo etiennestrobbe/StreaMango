@@ -16,9 +16,11 @@
 ?>
 <!doctype html>
 <html lang="fr">
-	<head>
-		<title>Cours POO-IHM : Biblioth&egrave;que de films</title>
-		<meta charset="utf-8">
+            <head>
+                <title>StreaMango</title>
+                <meta charset="utf-8">
+
+
 		
 		<?php
 			// Traitement des feuilles de styles à intégrer
@@ -40,16 +42,7 @@
 		
 	</head>
 <body>
-	<header>
-		Cours POO-IHM : Biblioth&egrave;que de films
-	</header>
-	<div id="wrapper">
-		<nav id="menu">
-			<ul>
-				<li><a href="./index.php">Accueil</a></li>
-				<li><a href="./index.php?controller=Films&action=listAll">Films</a></li>
-			</ul>
-		</nav>
+	
 		<section id="main">
 <?php			
 			$head = ob_get_contents();
