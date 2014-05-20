@@ -39,7 +39,7 @@ class Stars_Controller {
         /* Récupération des données $_POST */
         $nom = $_POST["nom"];
         $prenom = $_POST["prenom"];
-        $nationalite = strtoupper($_POST["nationalite"]);
+        $nationalite = $_POST["nationalite"];
         $naissance = (int)$_POST["naissance"];
         $sex = ($_POST["sexe"]=="f");
 
