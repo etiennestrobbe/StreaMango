@@ -41,6 +41,13 @@
 			$view = new Edit_Films_View($film);
 			$view->display("");
 		}
+		
+		public function delete($params) {
+			$film = Nf_FilmManagement::getInstance()->idToFilm($params["id"]);
+			$film = Nf_FilmManagement::getInstance()->removeFilm($film);
+			
+			header('Location:index.php');
+		}
 			
 		public function validateEdit($params) {
 			$titre = $_POST['title'];
@@ -84,7 +91,7 @@
 			// On les envoi à la Add_Film_View
 			$viewparams["directors"] = $people;
 			$view = new Add_Films_View($viewparams);
-			$view->display();
+			$view->display("");
 		}
 		
 		public function validateAdd($params) {
