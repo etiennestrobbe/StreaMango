@@ -114,4 +114,24 @@ class Stars_Controller {
         $view->display();
     }
 
+
+	public function listAllStar(){
+
+        $stars = Nf_ActeurReaManagement::getInstance()->getPersonnes();
+
+        function starCmp($star1, $star2) {
+            return strcmp($star1->getNom(), $star2->getNom());
+        }
+        uasort($stars,'starCmp');
+
+        foreach($stars as $key=>$star){
+            $stars[$key]->portraits = Nf_ActeurReaManagement::getInstance()->getPortraits($star);
+        }
+
+        $viewparams["stars"] = $stars;
+        $view = new ListAll_Stars_View($viewparams);
+        $view->display();
+
+
+    }
 }
