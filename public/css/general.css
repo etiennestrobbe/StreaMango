@@ -372,6 +372,53 @@ UNE PAGE
 	margin-top: 40px;
 	margin-left: 40px;
 }
+
+.one input[type="radio"]{
+	float: right;
+}
+
+.one input[type="submit"]{
+	position: absolute;
+	margin: 30px;
+	left: 250px;
+	top: 10px;
+}
+
+.one textarea{
+	max-width: 100%;
+	min-width: 150px;
+	height: 100%;
+	margin: 10px;
+}
+
+.one .infos, .one .description{
+	float: left;
+	min-width: 200px;
+	max-width: 200px;
+	min-height: 200px;
+	margin: 10px;
+	padding: 10px;
+	padding-top: 20px;
+	padding-right: 25px;
+	background-color: rgba(0,0,0, 0.5);
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+
+.one .realisateur{
+	float: left;
+	min-width: 200px;
+	max-width: 400;
+	margin: 10px;
+	padding: 10px;
+	padding-top: 20px;
+	padding-right: 25px;
+	background-color: rgba(0,0,0, 0.5);
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+/*
+ ...
+*/
+
 .commentairenote {
     width:300px;
 }

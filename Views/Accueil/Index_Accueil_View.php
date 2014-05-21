@@ -8,11 +8,11 @@
 			ob_start();
 ?>
 
-<article id="welcome">
-	<header>Bienvenue dans ma biblioth&egrave;que de films!</header>
+<article id="welcome" class="one">
+	<header>Bienvenue dans notre biblioth&egrave;que de films!</header>
 
-	<p>Les fonctionnalit&eacute;s minimales attendues : lister, afficher, cr&eacute;er, editer, supprimer pour les films et les stars (acteur/r&eacute;alisateur).</p>
-</article>
+	Vous serez ici chez vous, et nous mangerons des BADLONEEEEES !
+	</article>
 
 <?php
 			$content = ob_get_contents();
