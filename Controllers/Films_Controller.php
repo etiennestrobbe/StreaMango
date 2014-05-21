@@ -41,6 +41,13 @@
 			$view = new Edit_Films_View($film);
 			$view->display("");
 		}
+		
+		public function delete($params) {
+			$film = Nf_FilmManagement::getInstance()->idToFilm($params["id"]);
+			$film = Nf_FilmManagement::getInstance()->removeFilm($film);
+			
+			header('Location:index.php');
+		}
 			
 		public function validateEdit($params) {
 			$titre = $_POST['title'];
