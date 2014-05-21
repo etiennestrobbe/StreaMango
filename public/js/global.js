@@ -58,6 +58,9 @@ $(document).ready(function(){
     $('#delStar').click(function(){
         return confirm("Voulez vraiment supprimer cette star ?");
     })
+    $('#delFilm').click(function(){
+        return confirm("Voulez vraiment supprimer ce film ?");
+    })
 
     /* connexion */
     $("#add_err").css('display', 'none', 'important');

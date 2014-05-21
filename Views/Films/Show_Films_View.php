@@ -106,16 +106,8 @@ No film to show.
 	
 	<footer>
 		<a  href="./index.php?controller=Films&action=edit&id=<?php echo $this->film->getId(); ?>">Editer</a>
-		
-		<script language="Javascript">
-			function test(){
-			  return window.confirm("Voulez-vous vraiment supprimer ce film ?" );
-			}
-		</script>
-		
-		<form action="./index.php?controller=Films&action=delete&id=<?php echo $this->film->getId(); ?>" method="post" onsubmit="test()">
-		<input type="submit" value="Supprimer">
-		</form>
+
+        <a id="delFilm" href="index.php?controller=Films&action=delete&id=<?php echo $this->film->getId();?>">Supprimer</a>
 
 		
 	</footer>
