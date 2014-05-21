@@ -276,7 +276,7 @@ article.acteur aside img {
 FORMULAIRE
 */
 
-.formulaire{
+.formulaire, .one{
 	position: relative;
 	width: 70%;
 	left: 15%;
@@ -289,7 +289,7 @@ FORMULAIRE
 	box-shadow: 0px 0px 3px #FFFFFF;
 }
 
-.formulaire header{
+.formulaire header, .one header{
 	color: white;
 	font-size: 200%;
 	text-shadow: 0px 0px 3px #FFFFFF;
@@ -350,3 +350,25 @@ FORMULAIRE
 	visibility: hidden;
 }
 
+/*
+UNE PAGE
+*/
+
+.one img{
+	float: right;
+}
+
+.one:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.one h2{
+	color: white;
+	font-size: 150%;
+	text-shadow: 0px 0px 3px #FFFFFF;
+	margin: 10px;
+	margin-top: 40px;
+	margin-left: 40px;
+}

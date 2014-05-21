@@ -27,7 +27,10 @@ class Show_Stars_View extends Main_Global_View{
         }
         else{
             ?>
-            <article class="star">
+            <article class="one">
+                <header>
+                    <?php echo $this->star->getNom()." ".$this->star->getPrenom();?>
+                </header>
                 <aside><?php
                 foreach($this->star->portraits as $portrait){?>
                     <img src="<?php echo $portrait->getSrc();?>"/>
@@ -35,39 +38,53 @@ class Show_Stars_View extends Main_Global_View{
                 }
                     ?>
                 </aside>
-                <header>
-                    <?php echo $this->star->getNom()." ".$this->star->getPrenom();?>
-                </header>
+                <section>
+                    <p>Année de naissance : <?php echo $this->star->getNaissance();?></p>
+                    <?php $mort = $this->star->getMort();
+                    echo ($mort == -1)?"":"<p>Date de dèces : ".$mort." (".($mort-$this->star->getNaissance())." ans)</p>";
+
+                    ?>
+                    <p>Nationalité : <?php echo $this->star->getNationalite();?></p>
+                    <p>Sexe : <?php echo ($this->star->isSexeFeminin())?"Feminin":"Masculin";?></p>
+
+
+                </section>
+
                 </article>
                 <?php
             if(!$this->films){
                 echo "<p>Pas de filmographie</p>";
             }
-            else {?>Filmographie :<?php
+            else {?>
+                <article class="one">Filmographie :<?php
                 foreach ($this->films as $film) {
                     ?>
-                    <article class="film">
+                    <a href="./index.php?controller=Films&action=show&id=<?php echo $film->getId();?>">
+                        <article class="one">
+                            <aside><?php
+                                if ($film->affiches) {
+                                        ?>
+                                        <img src="<?php echo $film->affiches[0]->getSrc() ?>">
+                                    <?php
 
-                        <aside><?php
-                            if ($film->affiches) {
-                                foreach ($film->affiches as $affiche) {
-                                    ?>
-                                    <img src="<?php echo $affiche->getSrc() ?>">
-                                <?php
                                 }
-
-                            }
-                            ?>
-                        </aside>
-                        <header>
-                            <?php echo $film->getTitre(); ?>
-                        </header>
-                    </article>
-                    </section>
+                                else{
+                                    ?>
+                                    <img src="./img/aucuneImage.png"/>
+                                    <?php
+                                }
+                                ?>
+                            </aside>
+                            <header>
+                                <?php echo $film->getTitre(); ?>
+                            </header>
+                    </a>
+                </article>
                 <?php
                 }
             }
                 ?>
+            </article>
         <?php
         }
 

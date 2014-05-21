@@ -21,7 +21,7 @@ No film to show.
 	} else {
 ?>
 
-<article class="film">
+<article class="one">
 	<header>
 		<?php echo $this->film->getTitre(); ?>
 	</header>
@@ -92,7 +92,7 @@ No film to show.
 		</p>
 	</section>
 
-	<section class="commentairenote">
+	<section class="one">
 		<form>
 			<b>Commenter : </b><input type="text" size="50"><br/>
 			<b>Note : </b><input type="radio"><input type="radio"><input type="radio"><input type="radio"><input type="radio">
@@ -105,7 +105,7 @@ No film to show.
 	</footer>
 </article>
 
-<article class="film">
+<article class="one">
 	<h2>Commentaires :</h2>
 	<p>
 		<?php
