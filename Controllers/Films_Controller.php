@@ -18,7 +18,7 @@
 			foreach($films as $key => $film) {
 				$films[$key]->affiches = Nf_FilmManagement::getInstance()->getAffiches($film);
 			}
-			
+
 			$viewparams["films"] = $films;
 			
 			$view = new ListAll_Films_View($viewparams);
@@ -40,6 +40,13 @@
 			$film = Nf_FilmManagement::getInstance()->idToFilm($params["id"]);
 			$view = new Edit_Films_View($film);
 			$view->display("");
+		}
+		
+		public function delete($params) {
+			$film = Nf_FilmManagement::getInstance()->idToFilm($params["id"]);
+			$film = Nf_FilmManagement::getInstance()->removeFilm($film);
+			
+			header('Location:index.php');
 		}
 			
 		public function validateEdit($params) {
@@ -68,14 +75,47 @@
 			// Requete de mise à jour
 			Nf_FilmManagement::getInstance()->updateFilm($old, $new);
 			
-			$viewparams["films"] = $new;
-			$view = new ListAll_Films_View($viewparams);
-			$view->display("");
+			 header('Location:index.php');
 		}
 			
 		public function add($params) {
-			$view = new Add_Films_View($params);
-			$view->display("");
+			// On récupère la liste des réalisateurs
+			$people = Nf_ActeurReaManagement::getInstance()->getRealisateurs();
+	 
+			// On les tri
+			function peopleCmp($p1, $p2) {
+				return strcmp($p1->getNom(), $p2->getNom());
+			}
+			uasort($people,'peopleCmp');
+
+			// On les envoi à la Add_Film_View
+			$viewparams["directors"] = $people;
+			$view = new Add_Films_View($viewparams);
+			$view->display();
+		}
+		
+		public function validateAdd($params) {
+			$titre = $_POST['title'];
+			$annee = $_POST['year'];
+			$style = $_POST['style'];
+			$lang = $_POST['lang'];
+			$desc = $_POST['desc'];
+			$rea = $_POST['real'];
+
+			$people = Nf_ActeurReaManagement::getInstance()->idToPeople($rea);		
+			$realisateur = new Data_Realisateur($people);
+			
+			$new = new Data_Film();
+			$new->setTitre($titre);
+			$new->setAnnee($annee);
+			$new->setStyle($style);
+			$new->setLangue($lang);
+			$new->setResume($desc);
+			$new->setRealisateur($realisateur);
+
+			$film = Nf_FilmManagement::getInstance()->addFilmComplet($new);
+			
+			header('Location:index.php');
 		}
 	}
 ?>
