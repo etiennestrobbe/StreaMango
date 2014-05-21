@@ -1,8 +1,3 @@
-
-$(document).ready(function(){
-    $("#menu").sticky({topSpacing:0});
-});
-
 function displayMort(){
     var inputToChange = document.getElementById("input_mort");
     if(document.getElementById("check_mort").checked){
@@ -14,6 +9,7 @@ function displayMort(){
 }
 
 $(document).ready(function(){
+    // Show and hide upload image
     var counter = 2;
     $('#del_file').hide();
     $('img#add_file').click(function(){
@@ -28,6 +24,7 @@ $(document).ready(function(){
         counter--;
         $('#f'+counter).remove();
     });
+    // Show and hide roles
     $('[id^=hiddenRole]').hide();
     $('[id^=imageRole]').click(function(){
         var val = $(this).attr("id").substr(9);
@@ -39,6 +36,22 @@ $(document).ready(function(){
             $('#'+nam).show(400);
         }
     });
+    // Show and hide searchBarre
+    var search = $('#barre-recherche');
+    search.hide();
+    $('#hide_show_button').click(function(){
+        if(search.is(':visible')){
+            $(this).attr('src','./img/plus.png');
+            search.hide(300);
+        }
+        else{
+            search.show(300);
+            $(this).attr('src','./img/moins.png');
+        }
+
+    });
+
+
 
 });
 

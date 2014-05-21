@@ -16,7 +16,7 @@ class Menu_Global_View {
             <a href="index.php?controller=Stars&action=listAllStar">Stars</a>
             <a href="#">Profil</a>
             <?php if($param!=0) { ?>
-                <img src="img/moins.png"/>
+                <img id="hide_show_button" src="img/plus.png"/>
             <?php
             }
             ?>
