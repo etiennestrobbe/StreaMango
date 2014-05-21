@@ -31,7 +31,7 @@ class Add_Stars_View extends Main_Global_View {
                             <img src='./public/img/add.png' id='add_file' title='Add new input' style="width: 30px"/>
                             <img src='./public/img/remove.png' id='del_file' title='Delete' style="width: 30px"/>
                         </div>
-                        <div class='url_img' id='f1'>Url d'une image<input name='url[]' type='text'/></div>
+                        <div class='url_img' id='f1'>Url d'une image :<input name='url[]' type='text'/></div>
 
                     </section>
 
@@ -58,10 +58,6 @@ class Add_Stars_View extends Main_Global_View {
                                 <option value="m">Homme</option>
                                 <option value="f">Femme</option>
                             </select>
-                        </p>
-                        <p>Type
-                            <input type="checkbox" name="acteur"/>Acteur
-                            <input type="checkbox" name="real"/>Réalisateur
                         </p>
                     </section>
 

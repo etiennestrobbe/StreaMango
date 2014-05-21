@@ -17,17 +17,18 @@ $(document).ready(function(){
     var counter = 2;
     $('#del_file').hide();
     $('img#add_file').click(function(){
-        $('#file_tools').before('<div class="url_img" id="f">Url d\'une image<input name="url[]" type="text">'+counter+'</div>');
-        $('#del_file').fadeIn(0);
+        $('#file_tools').before('<div class="url_img" id="f'+counter+'"><input name="url[]" type="text"/>Url d\'une image :</div>');
+        $('#del_file').fadeIn(250);
         counter++;
     });
     $('img#del_file').click(function(){
         if(counter==3){
-            $('#del_file').hide();
+            $('#del_file').hide(250);
         }
         counter--;
         $('#f'+counter).remove();
     });
+    $('[id^=hiddenRole]').hide();
     $('[id^=imageRole]').click(function(){
         var val = $(this).attr("id").substr(9);
         var nam = "hiddenRole" + val;
