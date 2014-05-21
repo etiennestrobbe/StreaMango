@@ -90,7 +90,13 @@ class Stars_Controller {
 
         $link = "index.php?controller=Stars&action=show&id=".$_POST["id_star"];
         header('Location:'.$link);
+    }
 
+    public function del($param){
+        $id = $param["id"];
+        Nf_ActeurReaManagement::getInstance()->removePersonne(Nf_ActeurReaManagement::getInstance()->idToPeople($id));
+        $link = "index.php?controller=Stars&action=listAllStar";
+        header('Location:'.$link);
 
     }
 

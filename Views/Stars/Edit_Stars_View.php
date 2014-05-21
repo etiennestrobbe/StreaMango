@@ -78,7 +78,7 @@ class Edit_Stars_View extends Main_Global_View{
                         </section>
 
                         <!-- TODO check en JS si tous les truc sont bien remplis -->
-                        <input type="submit" value="Ajouter"/>
+                        <input type="submit" value="Modifier"/>
                     </form>
 
 

@@ -29,6 +29,7 @@ class Show_Stars_View extends Main_Global_View{
             ?>
             <article class="one">
                 <a href="index.php?controller=Stars&action=edit&id=<?php echo $this->star->getId();?>">Editer</a>
+                <a id="delStar" href="index.php?controller=Stars&action=del&id=<?php echo $this->star->getId();?>">Supprimer</a>
                 <header>
                     <?php echo $this->star->getNom()." ".$this->star->getPrenom();?>
                 </header>

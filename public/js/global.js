@@ -55,6 +55,9 @@ $(document).ready(function(){
         }
 
     });
+    $('#delStar').click(function(){
+        return confirm("Voulez vraiment supprimer cette star ?");
+    })
 
 
 
