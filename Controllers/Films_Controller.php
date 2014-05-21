@@ -27,10 +27,41 @@
 			
 			public function edit($params) {
 				$film = Nf_FilmManagement::getInstance()->idToFilm($params["id"]);
-				//$viewparams["films"] = $film;
 				$view = new Edit_Films_View($film);
 				$view->display();
 			}
+			
+			
+		public function validateEdit($params) {
+			$titre = $_POST['title'];
+			$annee = $_POST['year'];
+			$style = $_POST['style'];
+			$lang = $_POST['lang'];
+			$desc = $_POST['desc'];
+			$rea = $_POST['real'];
+			$roles;
+			$actors;
+
+			$old = Nf_FilmManagement::getInstance()->idToFilm($params["id"]);
+			$new = new Data_Film();
+			$new->setTitre($titre);
+			$new->setAnnee($annee);
+			$new->setStyle($style);
+			$new->setLangue($lang);
+			$new->setResume($desc);
+			
+			$realisateur = new Data_Realisateur();
+			
+			//$realisateur = $rea;
+			$new->setRealisateur($realisateur);
+			
+			// Requete de mise à jour
+			Nf_FilmManagement::getInstance()->updateFilm($old, $new);
+			
+			$viewparams["films"] = $new;
+			$view = new ListAll_Films_View($viewparams);
+			$view->display();
+		}
 			
 			public function add($params) {
 				$view = new Add_Films_View($params);

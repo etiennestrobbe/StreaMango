@@ -15,31 +15,25 @@
 		Ajouter un film
 	</header> 
 	<form action=""  method="POST">
-	<table>
-   <tr>
-       <td><label for="title">Titre :</label></td>
-       <td><input type="text" name="title" value=''></td>
-   </tr>
-   <tr>
-       <td><label for="year">Année :</label></td>
-       <td><input type="text" name="year" value=''></td>
-   </tr>
-     <tr>
-       <td><label for="style">Style :</label></td>
-       <td><input type="text" name="style" value=''></td>
-   </tr>
-   <tr>
-       <td><label for="lang">Langue :</label></td>
-       <td><input type="text" name="lang" value=''></td>
-   </tr>
-     <tr>
-       <td><label for="desc">Description :</label></td>
-       <td><textarea name="desc" cols="70" rows="7"></textarea></td>
-   </tr>
-</table>
-	<br>
-	Réalisateur
-	Ajouter / Supprimer un acteur<br>
+	
+		<label for="title">Titre :</label><br>
+		<input type="text" name="title" value=''><br>
+	  
+		<label for="year">Année :</label><br>
+		<input type="text" name="year" value=''><br>
+
+		<label for="style">Style :</label><br>
+		<input type="text" name="style" value=''><br>
+
+		<label for="lang">Langue :</label><br>
+		<input type="text" name="lang" value=''><br>
+
+		<label for="desc">Description :</label><br>
+		<textarea name="desc" cols="70" rows="7"></textarea><br>
+
+		<br>
+		Réalisateur
+		Ajouter / Supprimer un acteur<br>
 	</form>
 	<footer>
 		<input type="submit">
