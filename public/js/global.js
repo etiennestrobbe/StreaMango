@@ -29,11 +29,16 @@ $(document).ready(function(){
     $('[id^=imageRole]').click(function(){
         var val = $(this).attr("id").substr(9);
         var nam = "hiddenRole" + val;
+        var check = "checkboxFilm" + val;
         if($('#'+nam).is(':visible')){
+            $(this).css({ opacity: 1 });
+            $('#'+check).prop('checked',false);
             $('#'+nam).hide(400);
         }
         else{
+            $('#'+check).prop('checked',true);
             $('#'+nam).show(400);
+            $(this).css({ opacity: 0.5 });
         }
     });
     // Show and hide searchBarre

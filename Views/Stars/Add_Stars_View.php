@@ -69,7 +69,7 @@ class Add_Stars_View extends Main_Global_View {
                                         if ($film->affiches) {
                                             ?>
                             <div class="role">
-                                <input class="checkboxFilm" type="checkbox" name="check_list_acteur[]" value="<?php echo $film->getId();?>">
+                                <input id="checkboxFilm<?php echo $film->getId();?>" class="checkboxFilm" type="checkbox" name="check_list_acteur[]" value="<?php echo $film->getId();?>">
 
 
                                             <?php

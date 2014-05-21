@@ -103,6 +103,7 @@ class Stars_Controller {
         /* Liaison de l'acteur aux films */
         if(!empty($_POST["check_list_acteur"])){
             foreach($_POST["check_list_acteur"] as $check){
+                echo $check;
 
                 $films_to_change  = $list_films->idToFilm($check);
                 $role = new Data_Role($nom,$acteur);
@@ -111,11 +112,11 @@ class Stars_Controller {
 
         }
 
-        header('Location:index.php');
+        header('Location:index.php?controller=Stars&action=listAllStar');
 
     }
 	
-	public function show_star($param){
+	public function show($param){
         $star_to_show = Nf_ActeurReaManagement::getInstance()->idToPeople($param["id"]);
         $actor = new Data_Acteur($star_to_show);
         $real = new Data_Realisateur($star_to_show);
