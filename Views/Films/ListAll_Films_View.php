@@ -21,8 +21,10 @@ Aucun film n'est pr&eacute;sent dans la base de donn&eacute;es.
 </article>
         </section>
 <?php
-	} else {
-		
+	} else {?>
+		<header>
+			<a  href="./index.php?controller=Films&action=add">Ajouter un film</a>
+		</header><?php
 		foreach($this->films as $film) {
 ?>
             <article class="film">
@@ -44,11 +46,6 @@ Aucun film n'est pr&eacute;sent dans la base de donn&eacute;es.
                     <a href="./index.php?controller=Films&action=show&id=<?php echo $film->getId(); ?>"><?php echo $film->getTitre(); ?></a>
                 </header>
             </article>
-
-
-	
-
-
 
 <?php
 		}
