@@ -27,8 +27,9 @@ Aucun film n'est pr&eacute;sent dans la base de donn&eacute;es.
 		</header><?php
 		foreach($this->films as $film) {
 ?>
-            <article class="film">
-
+		<a href="./index.php?controller=Films&action=show&id=<?php echo $film->getId(); ?>">
+        <article class="film">
+		
 		<aside>
             <?php
             if($film->affiches) {
@@ -40,12 +41,17 @@ Aucun film n'est pr&eacute;sent dans la base de donn&eacute;es.
             <?php
 
             }
-            ?>
+			else{?>
+				<img src="./img/aucuneImage.png" />
+			<?php
+			}
+			?>
 		</aside>
-                <header>
-                    <a href="./index.php?controller=Films&action=show&id=<?php echo $film->getId(); ?>"><?php echo $film->getTitre(); ?></a>
-                </header>
-            </article>
+            <header>
+                    <?php echo $film->getTitre(); ?></a>
+            </header>
+        </article>
+		</a>
 
 <?php
 		}
