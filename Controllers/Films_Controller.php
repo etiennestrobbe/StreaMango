@@ -22,7 +22,7 @@
 			$viewparams["films"] = $films;
 			
 			$view = new ListAll_Films_View($viewparams);
-			$view->display();
+			$view->display("index.php?controller=Films&action=add",1);
 		}
 
 		public function show($params) {
@@ -33,13 +33,13 @@
 			$viewparams["film"] = $film;
 
 			$view = new Show_Films_View($viewparams);
-			$view->display();
+			$view->display("");
 		}
 		
 		public function edit($params) {
 			$film = Nf_FilmManagement::getInstance()->idToFilm($params["id"]);
 			$view = new Edit_Films_View($film);
-			$view->display();
+			$view->display("");
 		}
 			
 		public function validateEdit($params) {
@@ -69,10 +69,6 @@
 			Nf_FilmManagement::getInstance()->updateFilm($old, $new);
 			
 			 header('Location:index.php');
-			 /*
-			$viewparams["films"] = $new;
-			$view = new ListAll_Films_View($viewparams);
-			$view->display();*/
 		}
 			
 		public function add($params) {

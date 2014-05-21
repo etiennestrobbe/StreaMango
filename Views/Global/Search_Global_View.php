@@ -8,6 +8,12 @@
 
 class Search_Global_View {
 
+    private $link;
+
+    public function Search_Global_View($param){
+        $this->link = $param;
+    }
+
     function getSearch(){
         ob_start();
         ?>
@@ -16,9 +22,7 @@ class Search_Global_View {
     <form>
         <input type="text" id="search" name="search"/>
     </form>
-		<a  href="./index.php?controller=Films&action=add">
-			<img id="plus" src="img/ajouter.png"/>
-		</a>
+    <a href="<?php echo $this->link;?>" ><img id="plus" src="img/ajouter.png"/></a>
 </section>
 <?php
         $footer = ob_get_contents();

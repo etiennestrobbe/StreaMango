@@ -7,15 +7,19 @@
  */
 
 class Menu_Global_View {
-    public function getMenu() {
+    public function getMenu($param =0) {
         ob_start();
         ?>
         <nav>
-            <a href="#">Accueil</a>
+            <a href="index.php?controller=Accueil">Accueil</a>
             <a class="currentPage" href="index.php?controller=Films&action=listAll">Films</a>
-            <a href="index.php?controller=Stars&action=add_star">Stars</a>
+            <a href="index.php?controller=Stars&action=listAllStar">Stars</a>
             <a href="#">Profil</a>
-            <img src="img/moins.png"/>
+            <?php if($param!=0) { ?>
+                <img src="img/moins.png"/>
+            <?php
+            }
+            ?>
         </nav>
         <?php
         $footer = ob_get_contents();

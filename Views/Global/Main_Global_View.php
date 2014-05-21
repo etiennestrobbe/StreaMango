@@ -41,7 +41,7 @@
 		*
 		* @return void
 		*/
-		public function display() {
+		public function display($link,$param = 0) {
 			
 			$cssGlobal = array("general.css");
 			$jsGlobal = array("jquery-2.1.0.min.js", "jquery.sticky.js", "global.js");
@@ -53,13 +53,18 @@
 			$header = new Header_Global_View($cssTotal, $jsTotal);
 			$ban = new Banniere_Global_View();
 			$nav = new Menu_Global_View();
-			$search = new Search_Global_View();
+            if($param !=0){
+                $search = new Search_Global_View($link);
+            }
+
 			$footer = new Footer_Global_View();
 			
 			$content = $header->getHeader();
 			$content .= $ban->getBanniere();
-			$content .= $nav->getMenu();
-			$content .= $search->getSearch();
+			$content .= $nav->getMenu($param);
+            if($param !=0) {
+                $content .= $search->getSearch();
+            }
 			$content .= $this->mainContent();
 			$content .= $footer->getFooter();
 			

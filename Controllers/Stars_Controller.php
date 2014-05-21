@@ -31,7 +31,27 @@ class Stars_Controller {
 
         $viewparams["films"] = $films;
         $view = new Add_Stars_View($viewparams);
-        $view->display();
+        $view->display("");
+
+    }
+
+    public function edit_star($param){
+        $stars = Nf_ActeurReaManagement::getInstance()->idToPeople($param["id"]);
+        $actor = new Data_Acteur($stars);
+        $real = new Data_Realisateur($stars);
+
+        $filmForActor = Nf_FilmManagement::getInstance()->getFilmsParActeur($actor);
+        $filmForReal = Nf_FilmManagement::getInstance()->getFilmsParRea($real);
+        $films = ($filmForActor)?$filmForActor:$filmForReal;
+
+        foreach($films as $key => $film){
+            $films[$key]->affiches = Nf_FilmManagement::getInstance()->getAffiches($film);
+        }
+
+        $viewparams["star"] = $stars;
+        $viewparams["films"] = $films;
+        $view = new Edit_Stars_View($viewparams);
+        $view->display("");
 
     }
 
@@ -111,7 +131,7 @@ class Stars_Controller {
         $viewparam1["star"] = $star_to_show;
         $viewparam2["films"] = $films_of_stars;
         $view = new Show_Stars_View($viewparam1,$viewparam2);
-        $view->display();
+        $view->display("");
     }
 
 
@@ -130,7 +150,7 @@ class Stars_Controller {
 
         $viewparams["stars"] = $stars;
         $view = new ListAll_Stars_View($viewparams);
-        $view->display();
+        $view->display("index.php?controller=Stars&action=add_star",1);
 
 
     }

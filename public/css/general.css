@@ -63,9 +63,17 @@ form label{
 	display: block;
 	z-index: 12;
 }
-form input{
+form input,select{
+	min-width: 50px;
+	max-width: 250px;
 	background-color: rgba(255,255,255, 0.5);
-	color: white;
+	color: black;
+	z-index: 9;
+}
+banniere form input{
+	z-index: 12;
+}
+banniere form select{
 	z-index: 12;
 }
 
@@ -86,9 +94,8 @@ nav{
 }
 
 nav img{
-	position: relative;
-	top: 5px;
-	left: 5%;
+	position: float;
+	float: right;
 	box-shadow: -1px 0px 10px white;
 }
 
@@ -113,7 +120,7 @@ nav a {
 	padding: 10px;
 	padding-left: 0px;
 	padding-bottom: 20px;
-padding-right: 35px;
+	padding-right: 35px;
 	background-image: url(../../img/banniere.jpg);
 	background-repeat: no-repeat;
 	background-color: black;
@@ -166,6 +173,10 @@ FILMS
   display: block;
   content: "";
   clear: both;
+}
+
+article.formArticle {
+	padding-bottom: 30px;
 }
 
 article.film {
@@ -260,3 +271,82 @@ article.acteur aside img {
 	height: 180px;
 	z-index: 1;
 }
+
+/*
+FORMULAIRE
+*/
+
+.formulaire{
+	position: relative;
+	width: 70%;
+	left: 15%;
+	min-width: 480px;
+	padding: 10px;
+	padding-top: 20px;
+	padding-right: 25px;
+	background-color: rgba(0,0,0, 0.5);
+	background-attachment:fixed;
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+
+.formulaire header{
+	color: white;
+	font-size: 200%;
+	text-shadow: 0px 0px 3px #FFFFFF;
+	margin: 10px;
+}
+
+.formulaire .portrait, .informations, .filmographie, .role{
+	min-width: 450px;
+	margin: 10px;
+	padding: 10px;
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+
+.filmographie:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.formulaire .role input{
+	position: relative;
+	left: 20px;
+}
+
+.formulaire .role img{
+	position: relative;
+	margin-right: 10px;
+    width : 120px;
+    height: 180px;
+}
+
+.formulaire .role{
+    float: left;
+    min-width: 250px;
+}
+
+.formulaire .portrait input{
+	margin-left: 30px;
+}
+
+.formulaire .url_img{
+	margin: 10px;
+}
+
+.formulaire #file_tools{
+	position: float;
+	float: right;
+}
+
+.formulaire input, select{
+	position: absolute;
+	left: 200px;
+	max-width: 250px;
+	min-width: 50px;
+}
+
+.formulaire .checkboxFilm{
+	visibility: hidden;
+}
+
