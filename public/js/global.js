@@ -59,6 +59,39 @@ $(document).ready(function(){
         return confirm("Voulez vraiment supprimer cette star ?");
     })
 
+    /* connexion */
+    $("#add_err").css('display', 'none', 'important');
+    $("#submit_log").click(function(){
+        var username=$("#login").val();
+        var password=$("#pass").val();
+        $.ajax({
+            type: "POST",
+            url: "index.php?controller=Users&action=connect",
+            data: "login="+username+"&pass="+password,
+            success: function(html){
+                if(html=='true')    {
+                    //$("#add_err").html("right username or password");
+                    window.location="index.php?controller=Accueil";
+                }
+                else    {
+                    $("#add_err").css('display', 'inline', 'important');
+                    $("#add_err").html("<img src='images/alert.png' />Wrong username or password");
+                }
+            }
+        });
+        return false;
+    });
+
+    /* deconnexion */
+    $('#logout').click(function(){
+        $.ajax({
+            url:'index.php?controller=Users&action=deconnect',
+            success:function(html){
+                window.location="index.php?controller=Accueil";
+            }
+        })
+    });
+
 
 
 });
