@@ -2,8 +2,6 @@
 	class Index_Accueil_View extends Main_Global_View {
 		
 		public function Index_Accueil_View() {
-			$accueilcss = array("accueil.css");
-			$this->setCSS($accueilcss);
 		}
 		
 		public function mainContent() {

@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     $("#menu").sticky({topSpacing:0});
 });
@@ -16,7 +17,7 @@ $(document).ready(function(){
     var counter = 2;
     $('#del_file').hide();
     $('img#add_file').click(function(){
-        $('#file_tools').before('<div class="url_img" id="f'+counter+'">Url d\'une image<input name="url[]" type="text">'+counter+'</div>');
+        $('#file_tools').before('<div class="url_img" id="f">Url d\'une image<input name="url[]" type="text">'+counter+'</div>');
         $('#del_file').fadeIn(0);
         counter++;
     });
@@ -27,6 +28,17 @@ $(document).ready(function(){
         counter--;
         $('#f'+counter).remove();
     });
+    $('[id^=imageRole]').click(function(){
+        var val = $(this).attr("id").substr(9);
+        var nam = "hiddenRole" + val;
+        if($('#'+nam).is(':visible')){
+            $('#'+nam).hide(400);
+        }
+        else{
+            $('#'+nam).show(400);
+        }
+    });
+
 });
 
 function validateFormStar(){

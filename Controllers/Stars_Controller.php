@@ -36,11 +36,21 @@ class Stars_Controller {
     }
 
     public function edit_star($param){
-
         $stars = Nf_ActeurReaManagement::getInstance()->idToPeople($param["id"]);
+        $actor = new Data_Acteur($stars);
+        $real = new Data_Realisateur($stars);
+
+        $filmForActor = Nf_FilmManagement::getInstance()->getFilmsParActeur($actor);
+        $filmForReal = Nf_FilmManagement::getInstance()->getFilmsParRea($real);
+        $films = ($filmForActor)?$filmForActor:$filmForReal;
+
+        foreach($films as $key => $film){
+            $films[$key]->affiches = Nf_FilmManagement::getInstance()->getAffiches($film);
+        }
 
         $viewparams["star"] = $stars;
-        $view = new Edit_Star_View($viewparams);
+        $viewparams["films"] = $films;
+        $view = new Edit_Stars_View($viewparams);
         $view->display();
 
     }
