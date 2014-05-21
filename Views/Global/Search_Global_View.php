@@ -16,7 +16,9 @@ class Search_Global_View {
     <form>
         <input type="text" id="search" name="search"/>
     </form>
-    <img id="plus" src="img/ajouter.png"/>
+		<a  href="./index.php?controller=Films&action=add">
+			<img id="plus" src="img/ajouter.png"/>
+		</a>
 </section>
 <?php
         $footer = ob_get_contents();
