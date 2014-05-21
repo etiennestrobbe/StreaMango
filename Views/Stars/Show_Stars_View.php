@@ -28,6 +28,7 @@ class Show_Stars_View extends Main_Global_View{
         else{
             ?>
             <article class="one">
+                <a href="index.php?controller=Stars&action=edit&id=<?php echo $this->star->getId();?>">Editer</a>
                 <header>
                     <?php echo $this->star->getNom()." ".$this->star->getPrenom();?>
                 </header>
