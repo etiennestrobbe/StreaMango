@@ -94,5 +94,24 @@ class Stars_Controller {
         header('Location:index.php');
 
     }
+	
+	public function show_star($param){
+        $star_to_show = Nf_ActeurReaManagement::getInstance()->idToPeople($param["id"]);
+        $actor = new Data_Acteur($star_to_show);
+        $real = new Data_Realisateur($star_to_show);
+
+        $star_to_show->portraits = Nf_ActeurReaManagement::getInstance()->getPortraits($star_to_show);
+        $filmForActor = Nf_FilmManagement::getInstance()->getFilmsParActeur($actor);
+        $filmForReal = Nf_FilmManagement::getInstance()->getFilmsParRea($real);
+        $films_of_stars = ($filmForActor)?$filmForActor:$filmForReal;
+        foreach ($films_of_stars as $film) {
+            $film->affiches = Nf_FilmManagement::getInstance()->getAffiches($film);
+        }
+
+        $viewparam1["star"] = $star_to_show;
+        $viewparam2["films"] = $films_of_stars;
+        $view = new Show_Stars_View($viewparam1,$viewparam2);
+        $view->display();
+    }
 
 }
