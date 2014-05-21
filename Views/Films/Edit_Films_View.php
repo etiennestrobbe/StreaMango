@@ -16,6 +16,7 @@
 		Modifier le film 
 		<?php echo $this->film->getTitre(); ?>
 	</header> 
+	
 	<form action="index.php?controller=Films&action=validateEdit&id=<?php echo $this->film->getId();?>"  method="POST">
 		<label for="title">Titre :</label><br>
 		<input type="text" name="title" value='<?php echo $this->film->getTitre(); ?>'><br>
