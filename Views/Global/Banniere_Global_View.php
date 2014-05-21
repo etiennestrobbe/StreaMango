@@ -18,7 +18,7 @@ class Banniere_Global_View {
             <?php if(isset ($_SESSION["connected"])) {
                 if ($_SESSION["connected"] == "true") {
                     ?>
-                    <a id="logout">Déconnexion</a>
+					<div id="logout" class="deconnexion"><a href="#">Déconnexion ?</a></div>
                 <?php
                 }
                 else {
@@ -30,13 +30,10 @@ class Banniere_Global_View {
                         <label for="pass">Mot de passe : </label>
                         <input type="password" id="pass" name="pass"/>
                         <input type="submit" id="submit_log" name="ok" value="OK"/>
+						<div id="inscription"><a href="#">Inscription ?</a></div>
                     </form>
 
-                    <div id="inscription">
-                        <p>
-                            <a href="#">Inscription ?</a>
-                        </p>
-                    </div>
+                    
                 <?php
                 }
             }
@@ -49,13 +46,11 @@ class Banniere_Global_View {
                     <label for="pass">Mot de passe : </label>
                     <input type="password" id="pass" name="pass"/>
                     <input type="submit" id="submit_log" name="ok" value="OK"/>
+					<div id="inscription">
+							<a href="#">Inscription ?</a>
+					</div>
                 </form>
 
-                <div id="inscription">
-                    <p>
-                        <a href="#">Inscription ?</a>
-                    </p>
-                </div>
             <?php
             }?>
 
