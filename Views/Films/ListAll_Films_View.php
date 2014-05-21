@@ -22,9 +22,9 @@ Aucun film n'est pr&eacute;sent dans la base de donn&eacute;es.
         </section>
 <?php
 	} else {?>
-		<header>
+		<!--<header>
 			<a  href="./index.php?controller=Films&action=add">Ajouter un film</a>
-		</header><?php
+		</header>--><?php
 		foreach($this->films as $film) {
 ?>
             <article class="film">
