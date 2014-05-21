@@ -47,11 +47,6 @@ Aucun film n'est pr&eacute;sent dans la base de donn&eacute;es.
                 </header>
             </article>
 
-
-	
-
-
-
 <?php
 		}
         ?>

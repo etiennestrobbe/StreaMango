@@ -34,11 +34,9 @@
 		<br>
 		Réalisateur
 		Ajouter / Supprimer un acteur<br>
-	</form>
-	<footer>
+		
 		<input type="submit">
-			
-	</footer>
+	</form>
 </article>
 <?php		
 			$content = ob_get_contents();

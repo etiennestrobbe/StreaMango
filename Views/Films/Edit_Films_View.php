@@ -50,10 +50,7 @@
 		</ul>
 		<br>
 		
-	
-	<footer>
-			<input type="submit">	
-	</footer>
+	<input type="submit">	
 	</form>
 </article>
 <?php		
