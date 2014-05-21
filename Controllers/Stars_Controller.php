@@ -35,6 +35,16 @@ class Stars_Controller {
 
     }
 
+    public function edit_star($param){
+
+        $stars = Nf_ActeurReaManagement::getInstance()->idToPeople($param["id"]);
+
+        $viewparams["star"] = $stars;
+        $view = new Edit_Star_View($viewparams);
+        $view->display();
+
+    }
+
     public function add_the_star(){
         /* Récupération des données $_POST */
         $nom = $_POST["nom"];

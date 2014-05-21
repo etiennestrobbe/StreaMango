@@ -1,7 +1,6 @@
 <?php
 class Add_Stars_View extends Main_Global_View {
 
-    private $star;
 
     public function Add_Stars_View($viewparams)
     {

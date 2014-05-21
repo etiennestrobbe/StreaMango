@@ -4,8 +4,6 @@
 		private $film;
 		
 		public function Show_Films_View($viewparams) {
-			$filmscss = array("films.css");
-			$this->setCSS($filmscss);
 			
 			$this->film = $viewparams["film"];
 		}
