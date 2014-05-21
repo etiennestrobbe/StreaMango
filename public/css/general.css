@@ -42,8 +42,16 @@ banniere img{
 }
 
 #inscription{
-	position: float;
+	position: relative;
+	right: -90px;
+	top: -200px;
+	padding: 100px;
+}
+
+.deconnexion{
 	float: right;
+	margin: 10px;
+	margin-right: 50px;
 }
 
 #inscription p{
