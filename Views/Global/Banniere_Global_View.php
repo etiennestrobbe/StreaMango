@@ -59,6 +59,16 @@ class Banniere_Global_View {
             <?php
             }?>
 
+            <article id="form_inscr">
+                <label for="nom">Nom : </label>
+                <input type="text" id="nom_ins" name="nom"/>
+                <label for="prenom">Prenom : </label>
+                <input type="text" id="prenom_ins" name="prenom"/>
+                <label for="pass">Mot de passe : </label>
+                <input type="password" id="pass_ins" name="pass"/>
+                <input type="button" id="submit_ins" name="ok" value="Inscription"/>
+            </article>
+
 
 
 

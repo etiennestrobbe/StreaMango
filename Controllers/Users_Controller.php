@@ -29,4 +29,16 @@ class Users_Controller {
         $_SESSION["connected"] = "false";
     }
 
+    public function signup(){
+        $name = $_POST["name"];
+        $surname = $_POST["surname"];
+        $pass = $_POST["pass"];
+        $anne = date("Y");
+
+        $new_user = new Data_User($surname,$name,$anne,$pass);
+
+        echo (Nf_UserDvdManagement::getInstance()->addUser($new_user))?'true':'false';
+
+    }
+
 } 

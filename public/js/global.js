@@ -95,6 +95,36 @@ $(document).ready(function(){
         })
     });
 
+    /* popup inscription */
+    var pop = $('#form_inscr');
+    pop.hide();
+    $("#pop_inscr").click(function(){
+        pop.bPopup({
+            speed:800,
+            transition:'slideIn'
+        });
+    });
+
+    /* inscription */
+    $("#submit_ins").click(function(){
+        var name=$("#nom_ins").val();
+        var surname=$("#prenom_ins").val();
+        var password=$("#pass_ins").val();
+        $.ajax({
+            type: "POST",
+            url: "index.php?controller=Users&action=signup",
+            data: "name="+name+"&surname="+surname+"&pass="+password,
+            success: function(html){
+                if(html=='true')    {
+                    //$("#add_err").html("right username or password");
+                    window.location="index.php?controller=Accueil";
+                }
+            }
+        });
+        return false;
+    });
+
+
 
 
 });
