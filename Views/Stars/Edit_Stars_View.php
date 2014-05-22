@@ -36,7 +36,7 @@ class Edit_Stars_View extends Main_Global_View{
         }
         else{
             ?>
-                <article class="formArticle">
+                <article class="one">
                     <header>
                         Editer :
                     </header>
@@ -45,7 +45,7 @@ class Edit_Stars_View extends Main_Global_View{
                             <!-- TODO faire plus tard... -->
                         </section>
 
-                        <section class="informations">
+                        <section class="infos">
                             <p>Nom : <input type="text" name="nom" value="<?php echo $this->star->getNom();?>" /></p>
                             <p>Prénom : <input type="text" name="prenom" value="<?php echo $this->star->getPrenom();?>" /></p>
                             <p>Année de naissance: <input type="text" name="naissance" value="<?php echo $this->star->getNaissance();?>" /></p>
@@ -62,20 +62,26 @@ class Edit_Stars_View extends Main_Global_View{
                                         ?>
                                 </select>
                                 </p>
+								
+								
+						</section>
+						<section class="infos">
+								
                                 <!--php insertInputText("Année de naissance","naissance");?> -->
                                 <input type="checkbox" id="check_mort" name="check_mort" onclick="displayMort();"/>Décédé <p id="input_mort"></p>
-                            <p>Sexe
+                            
+							<p>Sexe
                                 <select name="sexe">
                                     <option <?php if(!$this->star->isSexeFeminin()) echo "selected" ?>value="m">Homme</option>
                                     <option <?php if($this->star->isSexeFeminin()) echo "selected" ?> value="f">Femme</option>
                                 </select>
                             </p>
-                            <p>Type
+                            <p>Type :<br>
                                 <input type="radio" name="typeStar" value="acteur"> Acteur<br/>
                                 <input type="radio" name="typeStar" value="real"> Réalisateur <br/>
                             </p>
-                            <input type="hidden" name="id_star" value="<?php echo $this->star->getId();?>"
-                        </section>
+                            <input type="hidden" name="id_star" value='<?php echo $this->star->getId();?>'/>
+						</section>
 
                         <!-- TODO check en JS si tous les truc sont bien remplis -->
                         <input type="submit" value="Modifier"/>

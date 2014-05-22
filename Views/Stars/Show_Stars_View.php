@@ -58,19 +58,17 @@ class Show_Stars_View extends Main_Global_View{
                 echo "<p>Pas de filmographie</p>";
             }
             else {?>
-                <article class="one">Filmographie :<?php
+                <article id="films">Filmographie :<?php
                 foreach ($this->films as $film) {
-                    ?>
-                    <a href="./index.php?controller=Films&action=show&id=<?php echo $film->getId();?>">
-                        <article class="one">
+				?>					
+					<a href="./index.php?controller=Films&action=show&id=<?php echo $film->getId();?>">
+                    <article class="film">
                             <aside><?php
                                 if ($film->affiches) {
                                         ?>
                                         <img src="<?php echo $film->affiches[0]->getSrc() ?>">
                                     <?php
-
-                                }
-                                else{
+                                }else{
                                     ?>
                                     <img src="./img/aucuneImage.png"/>
                                     <?php
@@ -80,8 +78,8 @@ class Show_Stars_View extends Main_Global_View{
                             <header>
                                 <?php echo $film->getTitre(); ?>
                             </header>
-                    </a>
                 </article>
+				</a>
                 <?php
                 }
             }
