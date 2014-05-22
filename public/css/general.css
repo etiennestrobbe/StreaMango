@@ -388,6 +388,11 @@ UNE PAGE
 	float: right;
 }
 
+.one img{
+	box-shadow: 0px 0px 3px #FFFFFF;
+	margin: 5px;
+}
+
 .one input[type="submit"]{
 	position: absolute;
 	margin: 30px;
