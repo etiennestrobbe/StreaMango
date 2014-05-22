@@ -39,6 +39,7 @@ banniere img{
 #form{
 	position: float;
 	float: right;
+	height: 90%;
 }
 
 #inscription{
@@ -46,6 +47,8 @@ banniere img{
 	right: -90px;
 	top: -200px;
 	padding: 100px;
+	height: 20px;
+	width: 80px;
 }
 
 .deconnexion{
