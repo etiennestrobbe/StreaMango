@@ -66,29 +66,27 @@
 				<?php /*
 				if($this->actors) {
 					foreach($this->actors as $actor) {
+					?>
+							<div class="film">
+							<input class="checkboxFilm" type="checkbox" name="check_list_acteur[]" value='<?php echo $actor->getId();?>' id='<?php echo $actor->getId()?>'>
+						<?php
 						if($actor->portraits){
 							?>
-							<div class="film">
-								
-								<input class="checkboxFilm" type="checkbox" name="check_list_acteur[]" value='<?php echo $actor->getId();?>' id='<?php echo $actor->getId()?>'>
-
-										<img src="<?php echo $actor->portraits[0]->getSrc();?>"/>
-										<div id="hiddenRole<?php echo $actor->getId()?>">
-											<p>Role :<input type="text" name="role<?php echo $actor->getId();?>"></p>
-										</div>
-							</div>
+										<img id="imageRole<?php echo $actor->getId()?>" src="<?php echo $actor->portraits[0]->getSrc();?>"/>
 						<?php
 						}
 						else{
 						?>
-						<div class="film">
-							<img src="./img/personneDefaut.png"/>
-										<div id="hiddenRole<?php echo $actor->getId()?>">
-											<p>Role :<input type="text" name="role<?php echo $actor->getId();?>"></p>
-										</div>
-						</div>
-							<?php
+							<img id="imageRole<?php echo $actor->getId()?>" src="./img/personneDefaut.png"/>
+						<?php
 						}
+						?>
+							<div id="hiddenRole<?php echo $actor->getId()?>">
+								<p>Role :<input type="text" name="role<?php echo $actor->getId();?>"></p>
+							</div>
+							
+						</div>
+						
 					}
 				}*/
                     ?>		
