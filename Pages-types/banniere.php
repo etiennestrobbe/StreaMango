@@ -3,7 +3,7 @@
 
 <img src="img/logo.png" />
 <div id="form">
-	<form>
+	<form method="post" action="">
 		<label for="login">Login : </label>
 		<input type="text" id="login" name="login"/>
 		<label for="pass">Mot de passe : </label>

@@ -1,8 +1,3 @@
-
-$(document).ready(function(){
-    $("#menu").sticky({topSpacing:0});
-});
-
 function displayMort(){
     var inputToChange = document.getElementById("input_mort");
     if(document.getElementById("check_mort").checked){
@@ -14,6 +9,7 @@ function displayMort(){
 }
 
 $(document).ready(function(){
+    // Show and hide upload image
     var counter = 2;
     $('#del_file').hide();
     $('img#add_file').click(function(){
@@ -28,17 +24,108 @@ $(document).ready(function(){
         counter--;
         $('#f'+counter).remove();
     });
+    // Show and hide roles
     $('[id^=hiddenRole]').hide();
     $('[id^=imageRole]').click(function(){
         var val = $(this).attr("id").substr(9);
         var nam = "hiddenRole" + val;
+        var check = "checkboxFilm" + val;
         if($('#'+nam).is(':visible')){
+            $(this).css({ opacity: 1 });
+            $('#'+check).prop('checked',false);
             $('#'+nam).hide(400);
         }
         else{
+            $('#'+check).prop('checked',true);
             $('#'+nam).show(400);
+            $(this).css({ opacity: 0.5 });
         }
     });
+    // Show and hide searchBarre
+    var search = $('#barre-recherche');
+    search.hide();
+    $('#hide_show_button').click(function(){
+        if(search.is(':visible')){
+            $(this).attr('src','./img/plus.png');
+            search.hide(300);
+        }
+        else{
+            search.show(300);
+            $(this).attr('src','./img/moins.png');
+        }
+
+    });
+    $('#delStar').click(function(){
+        return confirm("Voulez vraiment supprimer cette star ?");
+    })
+    $('#delFilm').click(function(){
+        return confirm("Voulez vraiment supprimer ce film ?");
+    })
+
+    /* connexion */
+    $("#add_err").css('display', 'none', 'important');
+    $("#submit_log").click(function(){
+        var username=$("#login").val();
+        var password=$("#pass").val();
+        $.ajax({
+            type: "POST",
+            url: "index.php?controller=Users&action=connect",
+            data: "login="+username+"&pass="+password,
+            success: function(html){
+                if(html=='true')    {
+                    //$("#add_err").html("right username or password");
+                    window.location="index.php?controller=Accueil";
+                }
+                else    {
+                    $("#add_err").css('display', 'inline', 'important');
+                    $("#add_err").html("<img src='images/alert.png' />Wrong username or password");
+                }
+            }
+        });
+        return false;
+    });
+
+    /* deconnexion */
+    $('#logout').click(function(){
+        $.ajax({
+            url:'index.php?controller=Users&action=deconnect',
+            success:function(html){
+                window.location="index.php?controller=Accueil";
+            }
+        })
+    });
+
+    /* popup inscription */
+    var pop = $('#form_inscr');
+    pop.hide();
+    $("#inscription").click(function(){
+        pop.bPopup({
+            speed:800,
+            transition:'slideIn'
+        });
+    });
+
+    /* inscription */
+    $("#submit_ins").click(function(){
+        var name=$("#nom_ins").val();
+        var surname=$("#prenom_ins").val();
+        var password=$("#pass_ins").val();
+        $.ajax({
+            type: "POST",
+            url: "index.php?controller=Users&action=signup",
+            data: "name="+name+"&surname="+surname+"&pass="+password,
+            success: function(html){
+                if(html=='true')    {
+                    //$("#add_err").html("right username or password");
+                    window.location="index.php?controller=Accueil";
+                }
+            }
+        });
+        return false;
+    });
+
+
+
 
 });
 

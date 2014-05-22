@@ -523,7 +523,7 @@ class Nf_UserDvdManagement {
 	 {
 		 if ( $this->estUserIncomplet($user) ) 
 		 {
-			 return false;
+			 return "prout";
 		 }
 		 
 		 /*

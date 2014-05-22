@@ -39,11 +39,22 @@ banniere img{
 #form{
 	position: float;
 	float: right;
+	height: 90%;
 }
 
 #inscription{
-	position: float;
+	position: relative;
+	right: -90px;
+	top: -200px;
+	padding: 100px;
+	height: 20px;
+	width: 80px;
+}
+
+.deconnexion{
 	float: right;
+	margin: 10px;
+	margin-right: 50px;
 }
 
 #inscription p{
@@ -63,7 +74,7 @@ form label{
 	display: block;
 	z-index: 12;
 }
-form input,select{
+form input[type="text"],select{
 	min-width: 50px;
 	max-width: 250px;
 	background-color: rgba(255,255,255, 0.5);
@@ -189,6 +200,11 @@ article.film {
 	box-shadow: 1px 0px 10px white;
 }
 
+
+article.film:hover header {
+	visibility: visible;
+}
+
 article.film header {
 	visibility: hidden;
 	position: relative;
@@ -201,10 +217,6 @@ article.film header {
 	box-shadow: -1px 0px 10px white;
 	padding: 2px;
 	z-index : 2;
-}
-
-article.film:hover header{
-	visibility: visible;
 }
 
 article.film aside img {
@@ -276,7 +288,7 @@ article.acteur aside img {
 FORMULAIRE
 */
 
-.formulaire{
+.formulaire, .one{
 	position: relative;
 	width: 70%;
 	left: 15%;
@@ -289,7 +301,7 @@ FORMULAIRE
 	box-shadow: 0px 0px 3px #FFFFFF;
 }
 
-.formulaire header{
+.formulaire header, .one header{
 	color: white;
 	font-size: 200%;
 	text-shadow: 0px 0px 3px #FFFFFF;
@@ -339,14 +351,124 @@ FORMULAIRE
 	float: right;
 }
 
-.formulaire input, select{
-	position: absolute;
-	left: 200px;
-	max-width: 250px;
-	min-width: 50px;
+.formulaire input[type="text"], select{
+	position: relative;
+	margin: 10px;
+	width: 80%;
+}
+
+.formulaire input[type="checkbox"]{
+	position: relative;
+	margin: 10px;
 }
 
 .formulaire .checkboxFilm{
 	visibility: hidden;
 }
 
+/*
+UNE PAGE
+*/
+
+.one:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.one h2{
+	color: white;
+	font-size: 150%;
+	text-shadow: 0px 0px 3px #FFFFFF;
+	margin: 10px;
+	margin-top: 40px;
+	margin-left: 40px;
+}
+
+.one input[type="radio"]{
+}
+
+.one img{
+	box-shadow: 0px 0px 3px #FFFFFF;
+	margin: 5px;
+	float: right;
+	max-width: 150px;
+	height: auto;
+}
+
+.one input[type="submit"]{
+	position: relative;
+	margin: 10px;
+}
+
+.one textarea{
+	max-width: 100%;
+	min-width: 150px;
+	height: 100%;
+	margin: 10px;
+}
+
+.one .infos, .one .description{
+	float: left;
+	min-width: 200px;
+	max-width: 200px;
+	min-height: 200px;
+	margin: 10px;
+	padding: 10px;
+	padding-top: 20px;
+	padding-right: 25px;
+	background-color: rgba(0,0,0, 0.5);
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+
+.one .realisateur{
+	float: left;
+	min-width: 200px;
+	max-width: 400;
+	margin: 10px;
+	padding: 10px;
+	padding-top: 20px;
+	padding-right: 25px;
+	background-color: rgba(0,0,0, 0.5);
+	box-shadow: 0px 0px 3px #FFFFFF;
+}
+/*
+ ...
+*/
+
+.commentairenote {
+    width:300px;
+}
+
+.commentairenote span {
+	float:right;
+	position:relative;
+}
+
+.commentairenote span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+
+.commentairenote span label {
+    display:inline-block;
+    width:30px;
+    height:30px;
+    text-align:center;
+    color:#FFF;
+    background:#ccc;
+    font-size:30px;
+    margin-right:2px;
+    line-height:30px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+}
+.commentairenote span:hover ~ span label,
+.commentairenote span:hover label,
+.commentairenote span.checked label,
+.commentairenote span.checked ~ span label {
+    background:#F90;
+    color:#FFF;
+}

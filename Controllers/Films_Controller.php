@@ -99,7 +99,7 @@
 			$viewparams["actors"] = $acteurs;			
 			
 			$view = new Add_Films_View($viewparams);
-			$view->display();
+			$view->display("");
 		}
 		
 		public function validateAdd($params) {

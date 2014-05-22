@@ -11,31 +11,38 @@
 		public function mainContent() {
 			ob_start();
 ?>
-<article class="film">
+<article class="one">
 	<header>
 		Modifier le film 
 		<?php echo $this->film->getTitre(); ?>
 	</header> 
 	
 	<form action="index.php?controller=Films&action=validateEdit&id=<?php echo $this->film->getId();?>"  method="POST">
-		<label for="title">Titre :</label><br>
-		<input type="text" name="title" value='<?php echo $this->film->getTitre(); ?>'><br>
-	   
-		<label for="year">Année :</label><br>
-		<input type="text" name="year" value='<?php echo $this->film->getAnnee(); ?>'><br>
-	   
-		<label for="style">Style :</label><br>
-		<input type="text" name="style" value='<?php echo $this->film->getStyle(); ?>'><br>
 		
-		<label for="lang">Langue :</label><br>
-		<input type="text" name="lang" value='<?php echo $this->film->getLangue(); ?>'><br>
-
-		<label for="desc">Description :</label><br>
-		<textarea name="desc" cols="70" rows="7"><?php echo $this->film->getResume(); ?></textarea><br>
+		<div class="infos">
+			<label for="title">Titre :</label><br>
+			<input type="text" name="title" value='<?php echo $this->film->getTitre(); ?>'><br>
+		   
+			<label for="year">Année :</label><br>
+			<input type="text" name="year" value='<?php echo $this->film->getAnnee(); ?>'><br>
+		   
+			<label for="style">Style :</label><br>
+			<input type="text" name="style" value='<?php echo $this->film->getStyle(); ?>'><br>
+			
+			<label for="lang">Langue :</label><br>
+			<input type="text" name="lang" value='<?php echo $this->film->getLangue(); ?>'><br>
+		</div>
 		
-		<label for="real">Realisateur :</label><br>
-		<input type="text" name="real" value='<?php echo($this->film->getRealisateur()->getPrenom(). " " .$this->film->getRealisateur()->getNom());?>'><br>
-	   
+		<div class="description">
+			<label for="desc">Description :</label><br>
+			<textarea name="desc" cols="70" rows="7"><?php echo $this->film->getResume(); ?></textarea><br>
+		</div>
+		
+		<div class="realisateur">
+			<label for="real">Realisateur :</label><br>
+			<input type="text" name="real" value='<?php echo($this->film->getRealisateur()->getPrenom(). " " .$this->film->getRealisateur()->getNom());?>'><br>
+	    
+	   <br>
 		 <label for="real">Acteurs/Personnages :</label><br>			
 		<ul>
 			<?php 
@@ -49,7 +56,7 @@
 				}
 			?>
 		</ul>
-		<br>
+		</div>
 		
 	<input type="submit">	
 	</form>

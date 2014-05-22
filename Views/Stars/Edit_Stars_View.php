@@ -25,7 +25,7 @@ class Edit_Stars_View extends Main_Global_View{
 
         ob_start();
         ?>
-        <section><?php
+        <section class="formulaire"><?php
         if(!$this->star){
             ?>
             <article>
@@ -36,7 +36,7 @@ class Edit_Stars_View extends Main_Global_View{
         }
         else{
             ?>
-                <article class="star">
+                <article class="one">
                     <header>
                         Editer :
                     </header>
@@ -45,9 +45,10 @@ class Edit_Stars_View extends Main_Global_View{
                             <!-- TODO faire plus tard... -->
                         </section>
 
-                        <section class="informations">
+                        <section class="infos">
                             <p>Nom : <input type="text" name="nom" value="<?php echo $this->star->getNom();?>" /></p>
                             <p>Prénom : <input type="text" name="prenom" value="<?php echo $this->star->getPrenom();?>" /></p>
+                            <p>Année de naissance: <input type="text" name="naissance" value="<?php echo $this->star->getNaissance();?>" /></p>
                             <p> Nationalité :
                                 <select name="nationalite">
                                     <?php
@@ -61,51 +62,29 @@ class Edit_Stars_View extends Main_Global_View{
                                         ?>
                                 </select>
                                 </p>
+								
+								
+						</section>
+						<section class="infos">
+								
                                 <!--php insertInputText("Année de naissance","naissance");?> -->
                                 <input type="checkbox" id="check_mort" name="check_mort" onclick="displayMort();"/>Décédé <p id="input_mort"></p>
-                            <p>Sexe
+                            
+							<p>Sexe
                                 <select name="sexe">
                                     <option <?php if(!$this->star->isSexeFeminin()) echo "selected" ?>value="m">Homme</option>
                                     <option <?php if($this->star->isSexeFeminin()) echo "selected" ?> value="f">Femme</option>
                                 </select>
                             </p>
-                            <p>Type
+                            <p>Type :<br>
                                 <input type="radio" name="typeStar" value="acteur"> Acteur<br/>
                                 <input type="radio" name="typeStar" value="real"> Réalisateur <br/>
                             </p>
-                        </section>
+                            <input type="hidden" name="id_star" value='<?php echo $this->star->getId();?>'/>
+						</section>
 
-                        <section class="filmographie">
-                            <p>Filmographie
-                                <?php
-                                if($this->films) {
-                                foreach ($this->films as $film) {
-                                if ($film->affiches) {
-                                ?>
-                                <input type="checkbox" name="check_list_acteur[]" value="<?php echo $film->getId();?>">
-                            <p>Role :<input type="text" name="role<?php echo $film->getId();?>"></p>
-                            <?php
-
-                            foreach ($film->affiches as $affiche) {
-                                ?>
-                                <img src="<?php echo $affiche->getSrc();?>"/><?php break; ?>
-                            <?php
-
-                            }
-
-                            }
-                            ?>
-                            <?php
-
-                            }
-                            }
-                            ?>
-                            </p>
-
-
-                        </section>
                         <!-- TODO check en JS si tous les truc sont bien remplis -->
-                        <input type="submit" value="Ajouter"/>
+                        <input type="submit" value="Modifier"/>
                     </form>
 
 

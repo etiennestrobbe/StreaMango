@@ -4,7 +4,6 @@
 		private $film;
 		
 		public function Show_Films_View($viewparams) {
-			
 			$this->film = $viewparams["film"];
 		}
 		
@@ -21,7 +20,7 @@ No film to show.
 	} else {
 ?>
 
-<article class="film">
+<article class="one">
 	<header>
 		<?php echo $this->film->getTitre(); ?>
 	</header>
@@ -92,32 +91,29 @@ No film to show.
 		</p>
 	</section>
 
-	<section class="commentairenote">
+	<section class="one">
 		<form>
 			<b>Commenter : </b><input type="text" size="50"><br/>
-			<b>Note : </b><input type="radio"><input type="radio"><input type="radio"><input type="radio"><input type="radio">
+			<b>Note : </b>
+		    <span><input type="radio" id="str5" value="5"><label for="str5"></label></span>
+		    <span><input type="radio" id="str4" value="4"><label for="str4"></label></span>
+		    <span><input type="radio" id="str3" value="3"><label for="str3"></label></span>
+		    <span><input type="radio" id="str2" value="2"><label for="str2"></label></span>
+		    <span><input type="radio" id="str1" value="1"><label for="str1"></label></span>
 		</form>
 		<!-- TODO (Marc) -->
 	</section>
 	
 	<footer>
 		<a  href="./index.php?controller=Films&action=edit&id=<?php echo $this->film->getId(); ?>">Editer</a>
-		
-		<script language="Javascript">
-			function test(){
-			  return window.confirm("Voulez-vous vraiment supprimer ce film ?" );
-			}
-		</script>
-		
-		<form action="./index.php?controller=Films&action=delete&id=<?php echo $this->film->getId(); ?>" method="post" onsubmit="test()">
-		<input type="submit" value="Supprimer">
-		</form>
+
+        <a id="delFilm" href="index.php?controller=Films&action=delete&id=<?php echo $this->film->getId();?>">Supprimer</a>
 
 		
 	</footer>
 </article>
 
-<article class="film">
+<article class="one">
 	<h2>Commentaires :</h2>
 	<p>
 		<?php

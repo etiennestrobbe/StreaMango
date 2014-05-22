@@ -13,59 +13,62 @@
 		public function mainContent() {
 			ob_start();
 ?>
-
-   <section id="add_acteur" class="formulaire">
-            <article class="formArticle">
-                <header>
-                    Ajouter un film
-                </header>
-                		
-
-	<section class="informations">
+<article class="one">
+	<header>
+		Ajouter un film
+	</header> 
 	 <form name="form_film" action="index.php?controller=Films&action=validateAdd" method="POST">
 	
-		<label for="title">Titre :</label><br>
-		<input type="text" name="title" value=''><br>
-	  
-		<label for="year">Annee :</label><br>
-		<input type="text" name="year" value=''><br>
+		<div class="infos">
+			<label for="title">Titre :</label><input type="text" name="title" value=''>
+		  
+			<label for="year">Annee :</label>
+			<input type="text" name="year" value=''>
 
-		<label for="style">Style :</label><br>
-		<input type="text" name="style" value=''><br>
+			<label for="style">Style :</label>
+			<input type="text" name="style" value=''>
 
-		<label for="lang">Langue :</label><br>
-		<input type="text" name="lang" value=''><br>
-
-		<label for="desc">Description :</label><br>
-		<textarea name="desc" cols="70" rows="7"></textarea><br>
+			<label for="lang">Langue :</label>
+		<input type="text" name="lang" value=''>
+		</div>
 		
-		<label for="real">Selectionner un realisateur :</label><br>
-		<?php 
-			foreach($this->directors as $rea) {
-			?>
-			<li>	
-				<?php
-					$name = utf8_encode($rea->getPrenom()) . " " . utf8_encode($rea->getNom());
-					$id = $rea->getId(); 
-					echo $name;
-				?>
-				<input type="radio" name="real" value='<?php echo $id;?>'><br>
-							
-			</li>
-		<?php
-			}
-		?>
-		<br>
-		<section class="filmographie">
-		<label for="real">Affecter des acteurs :</label><br>
-
+		<div class="description">
+			<label for="desc">Description :</label>
+			<textarea name="desc" rows="7"></textarea>
+		</div>
+		
+		<div class="realisateur">
+			<label for="real">Selectionner un realisateur :</label>
 			
-				<?php 
+
+			<?php 
+				foreach($this->directors as $rea) {
+				?>
+				<li>	
+					<?php
+						$name = utf8_encode($rea->getPrenom()) . " " . utf8_encode($rea->getNom());
+						$id = $rea->getId(); 
+						 echo $name;
+					?>
+					<input type="radio" name="real" value='<?php echo $id;?>'><br>
+								
+				</li>
+				<?php
+					}
+				?>
+
+
+			<!--<div class='url_img' id='f1'>Url d'une image<input name='url[]' type='text'/></div>-->
+		</div>
+	
+<!--	
+		<div id="films" class="filmographie">
+				<?php /*
 				if($this->actors) {
 					foreach($this->actors as $actor) {
 						if($actor->portraits){
 							?>
-							<div class="role">
+							<div class="film">
 								
 								<input class="checkboxFilm" type="checkbox" name="check_list_acteur[]" value='<?php echo $actor->getId();?>' id='<?php echo $actor->getId()?>'>
 
@@ -78,7 +81,7 @@
 						}
 						else{
 						?>
-						<div class="role">
+						<div class="film">
 							<img src="./img/personneDefaut.png"/>
 										<div id="hiddenRole<?php echo $actor->getId()?>">
 											<p>Role :<input type="text" name="role<?php echo $actor->getId();?>"></p>
@@ -87,16 +90,13 @@
 							<?php
 						}
 					}
-				}
+				}*/
                     ?>		
-			</section>
-		 </article>
-		<!--<div class='url_img' id='f1'>Url d'une image<input name='url[]' type='text'/></div>-->
+		</div>-->
 		<input type="submit">
 	</form>
-	</section>
-	</section>
 </article>
+
 <?php		
 			$content = ob_get_contents();
 			ob_end_clean();	

@@ -66,23 +66,28 @@ class Add_Stars_View extends Main_Global_View {
                             <?php
                                 if($this->films) {
                                     foreach ($this->films as $film) {
-                                        if ($film->affiches) {
                                             ?>
                             <div class="role">
-                                <input class="checkboxFilm" type="checkbox" name="check_list_acteur[]" value="<?php echo $film->getId();?>">
+                                <input id="checkboxFilm<?php echo $film->getId();?>" class="checkboxFilm" type="checkbox" name="check_list_acteur[]" value="<?php echo $film->getId();?>">
 
 
                                             <?php
 
-                                            foreach ($film->affiches as $affiche) {
+                                            if($film->affiches) {
                                                 ?>
-                                                <img id="imageRole<?php echo $film->getId()?>" src="<?php echo $affiche->getSrc();?>"/>
-                            <div id="hiddenRole<?php echo $film->getId()?>"><p>Role :<input type="text" name="role<?php echo $film->getId();?>"></p></div></div><?php break; ?>
+                                                <img id="imageRole<?php echo $film->getId()?>" src="<?php echo $film->affiches[0]->getSrc();?>"/>
+                            <div id="hiddenRole<?php echo $film->getId()?>"><p>Role :<input type="text" name="role<?php echo $film->getId();?>"></p></div></div>
+                                            <?php
+
+                                            }
+                                            else{
+                                                ?>
+                                                <img id="imageRole<?php echo $film->getId()?>" src="./img/aucuneImage.png"/>
+                                                <div id="hiddenRole<?php echo $film->getId()?>"><p>Role :<input type="text" name="role<?php echo $film->getId();?>"></p></div></div>
                                             <?php
 
                                             }
 
-                                        }
                                         ?>
                                     <?php
 

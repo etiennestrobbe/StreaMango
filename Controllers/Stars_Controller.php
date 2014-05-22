@@ -35,7 +35,7 @@ class Stars_Controller {
 
     }
 
-    public function edit_star($param){
+    public function edit($param){
         $stars = Nf_ActeurReaManagement::getInstance()->idToPeople($param["id"]);
         $actor = new Data_Acteur($stars);
         $real = new Data_Realisateur($stars);
@@ -52,6 +52,51 @@ class Stars_Controller {
         $viewparams["films"] = $films;
         $view = new Edit_Stars_View($viewparams);
         $view->display("");
+
+    }
+
+    public function edit_the_star(){
+        /* Récupération des données $_POST */
+        $nom = $_POST["nom"];
+        $prenom = $_POST["prenom"];
+        $nationalite = $_POST["nationalite"];
+        $naissance = (int)$_POST["naissance"];
+        $sex = ($_POST["sexe"]=="f");
+
+        /* Init des DB */
+        $list_acteurs_reals = Nf_ActeurReaManagement::getInstance();
+
+        /* Init date dèces si checked */
+        if(isset($_POST["check_mort"])){
+            $date_mort = $_POST["deces"];
+        }
+
+        /* Creation de l'objet acteur */
+        $people = new Data_People($nom,$prenom,$naissance,$nationalite,$sex);
+
+        /* S'il est mort on ajoute sa date de mort */
+        if(isset($date_mort)){
+            $people->setMort($date_mort);
+        }
+        $acteur = new Data_Acteur($people);
+        $list_acteurs_reals->updatePersonne(Nf_ActeurReaManagement::getInstance()->idToPeople($_POST["id_star"]),$acteur);
+
+        /* Recuperation image */
+        if(isset($_POST["url"])){
+            foreach($_POST["url"] as $key => $a_file){
+                $list_acteurs_reals->addPortraitAUnePersonne($acteur,$a_file);
+            }
+        }
+
+        $link = "index.php?controller=Stars&action=show&id=".$_POST["id_star"];
+        header('Location:'.$link);
+    }
+
+    public function del($param){
+        $id = $param["id"];
+        Nf_ActeurReaManagement::getInstance()->removePersonne(Nf_ActeurReaManagement::getInstance()->idToPeople($id));
+        $link = "index.php?controller=Stars&action=listAllStar";
+        header('Location:'.$link);
 
     }
 
@@ -103,7 +148,6 @@ class Stars_Controller {
         /* Liaison de l'acteur aux films */
         if(!empty($_POST["check_list_acteur"])){
             foreach($_POST["check_list_acteur"] as $check){
-
                 $films_to_change  = $list_films->idToFilm($check);
                 $role = new Data_Role($nom,$acteur);
                 $list_films->addPersonnagesAuFilm($films_to_change,$role);
@@ -111,11 +155,11 @@ class Stars_Controller {
 
         }
 
-        header('Location:index.php');
+        header('Location:index.php?controller=Stars&action=listAllStar');
 
     }
 	
-	public function show_star($param){
+	public function show($param){
         $star_to_show = Nf_ActeurReaManagement::getInstance()->idToPeople($param["id"]);
         $actor = new Data_Acteur($star_to_show);
         $real = new Data_Realisateur($star_to_show);

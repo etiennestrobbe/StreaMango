@@ -29,7 +29,7 @@ class ListAll_Stars_View extends Main_Global_View{
             foreach($this->stars as $star) {
 
                 ?>
-				<a href="./index.php?controller=Stars&action=show_star&id=<?php echo $star->getId(); ?>">
+				<a href="./index.php?controller=Stars&action=show&id=<?php echo $star->getId(); ?>">
                 <article class="acteur">
                     <aside><?php
                     if($star->portraits){
