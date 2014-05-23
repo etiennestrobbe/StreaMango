@@ -436,39 +436,39 @@ UNE PAGE
  ...
 */
 
-.commentairenote {
-    width:300px;
+#note {
+	display: inline-block;
 }
 
-.commentairenote span {
+#note span {
 	float:right;
 	position:relative;
 }
 
-.commentairenote span input {
+#note span input {
     position:absolute;
     top:0px;
     left:0px;
     opacity:0;
 }
 
-.commentairenote span label {
+#note span label {
     display:inline-block;
-    width:30px;
-    height:30px;
+    width:20px;
+    height:20px;
     text-align:center;
     color:#FFF;
     background:#ccc;
-    font-size:30px;
+    font-size:20px;
     margin-right:2px;
-    line-height:30px;
+    line-height:20px;
     border-radius:50%;
     -webkit-border-radius:50%;
 }
-.commentairenote span:hover ~ span label,
-.commentairenote span:hover label,
-.commentairenote span.checked label,
-.commentairenote span.checked ~ span label {
+#note span:hover ~ span label,
+#note span:hover label,
+#note span.checked label,
+#note span.checked ~ span label {
     background:#F90;
     color:#FFF;
 }
