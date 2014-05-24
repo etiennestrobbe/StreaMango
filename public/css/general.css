@@ -39,6 +39,7 @@ banniere img{
 #form{
 	position: float;
 	float: right;
+	height: 90%;
 }
 
 #inscription{
@@ -46,6 +47,8 @@ banniere img{
 	right: -90px;
 	top: -200px;
 	padding: 100px;
+	height: 20px;
+	width: 80px;
 }
 
 .deconnexion{
@@ -71,7 +74,7 @@ form label{
 	display: block;
 	z-index: 12;
 }
-form input,select{
+form input[type="text"],select{
 	min-width: 50px;
 	max-width: 250px;
 	background-color: rgba(255,255,255, 0.5);
@@ -197,6 +200,11 @@ article.film {
 	box-shadow: 1px 0px 10px white;
 }
 
+
+article.film:hover header {
+	visibility: visible;
+}
+
 article.film header {
 	visibility: hidden;
 	position: relative;
@@ -209,10 +217,6 @@ article.film header {
 	box-shadow: -1px 0px 10px white;
 	padding: 2px;
 	z-index : 2;
-}
-
-article.film:hover header{
-	visibility: visible;
 }
 
 article.film aside img {
@@ -347,11 +351,15 @@ FORMULAIRE
 	float: right;
 }
 
-.formulaire input, select{
-	position: absolute;
-	left: 200px;
-	max-width: 250px;
-	min-width: 50px;
+.formulaire input[type="text"], select{
+	position: relative;
+	margin: 10px;
+	width: 80%;
+}
+
+.formulaire input[type="checkbox"]{
+	position: relative;
+	margin: 10px;
 }
 
 .formulaire .checkboxFilm{
@@ -361,10 +369,6 @@ FORMULAIRE
 /*
 UNE PAGE
 */
-
-.one img{
-	float: right;
-}
 
 .one:after {
     display: block;
@@ -382,14 +386,19 @@ UNE PAGE
 }
 
 .one input[type="radio"]{
+}
+
+.one img{
+	box-shadow: 0px 0px 3px #FFFFFF;
+	margin: 5px;
 	float: right;
+	max-width: 150px;
+	height: auto;
 }
 
 .one input[type="submit"]{
-	position: absolute;
-	margin: 30px;
-	left: 250px;
-	top: 10px;
+	position: relative;
+	margin: 10px;
 }
 
 .one textarea{
@@ -427,39 +436,39 @@ UNE PAGE
  ...
 */
 
-.commentairenote {
-    width:300px;
+#note {
+	display: inline-block;
 }
 
-.commentairenote span {
+#note span {
 	float:right;
 	position:relative;
 }
 
-.commentairenote span input {
+#note span input {
     position:absolute;
     top:0px;
     left:0px;
     opacity:0;
 }
 
-.commentairenote span label {
+#note span label {
     display:inline-block;
-    width:30px;
-    height:30px;
+    width:20px;
+    height:20px;
     text-align:center;
     color:#FFF;
     background:#ccc;
-    font-size:30px;
+    font-size:20px;
     margin-right:2px;
-    line-height:30px;
+    line-height:20px;
     border-radius:50%;
     -webkit-border-radius:50%;
 }
-.commentairenote span:hover ~ span label,
-.commentairenote span:hover label,
-.commentairenote span.checked label,
-.commentairenote span.checked ~ span label {
+#note span:hover ~ span label,
+#note span:hover label,
+#note span.checked label,
+#note span.checked ~ span label {
     background:#F90;
     color:#FFF;
 }

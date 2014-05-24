@@ -78,18 +78,26 @@
 			 header('Location:index.php');
 		}
 			
-		public function add($params) {
-			// On récupère la liste des réalisateurs
-			$people = Nf_ActeurReaManagement::getInstance()->getRealisateurs();
-	 
+		public function add($params) {	
+			// On récupère la liste des réalisateurs et des acteurs
+			$realisateurs = Nf_ActeurReaManagement::getInstance()->getRealisateurs();
+			$acteurs = Nf_ActeurReaManagement::getInstance()->getActeurs();
+			
 			// On les tri
 			function peopleCmp($p1, $p2) {
 				return strcmp($p1->getNom(), $p2->getNom());
 			}
-			uasort($people,'peopleCmp');
+			uasort($realisateurs,'peopleCmp');
+			uasort($acteurs,'peopleCmp');
 
+			foreach($acteurs as $key=>$value){
+				$acteurs[$key]->portraits = Nf_ActeurReaManagement::getInstance()->getPortraits($value);
+			}
+	
 			// On les envoi à la Add_Film_View
-			$viewparams["directors"] = $people;
+			$viewparams["directors"] = $realisateurs;
+			$viewparams["actors"] = $acteurs;			
+			
 			$view = new Add_Films_View($viewparams);
 			$view->display("");
 		}
@@ -100,10 +108,10 @@
 			$style = $_POST['style'];
 			$lang = $_POST['lang'];
 			$desc = $_POST['desc'];
-			$rea = $_POST['real'];
+			$rea = $_POST['real'];		
 
-			$people = Nf_ActeurReaManagement::getInstance()->idToPeople($rea);		
-			$realisateur = new Data_Realisateur($people);
+			$real = Nf_ActeurReaManagement::getInstance()->idToPeople($rea);		
+			$realisateur = new Data_Realisateur($real);
 			
 			$new = new Data_Film();
 			$new->setTitre($titre);
@@ -115,7 +123,29 @@
 
 			$film = Nf_FilmManagement::getInstance()->addFilmComplet($new);
 			
-			header('Location:index.php');
+			echo("la ?");
+			echo("Test".$_POST['check_list_acteur']);
+			echo("TEST:".$test);
+
+			
+			if(!empty($_POST['check_list_acteur'])){
+				echo("NOT EMPTY");
+				foreach($_POST['check_list_acteur'] as $check){
+					$acteur  = Nf_ActeurReaManagement::getInstance()->idToPeople($check);	
+					$role = new Data_Role($_POST['role'.$check],$acteur);
+					echo("ROLE".$role);
+					$film = Nf_FilmManagement::getInstance()->addPersonnagesAuFilm($film,$role);
+				}
+			}
+			
+			 /* Recuperation image */
+       /* if(isset($_POST["url"])){
+            foreach($_POST["url"] as $key => $a_file){
+                $list_acteurs_reals->addPortraitAUnePersonne($acteur,$a_file);
+            }
+        }*/
+		
+			//header('Location:index.php');
 		}
 	}
 ?>
