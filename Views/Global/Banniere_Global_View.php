@@ -13,8 +13,12 @@ class Banniere_Global_View {
         ?>
         <banniere>
 
-
-            <img src="img/logo.png" />
+            <div id="dialog-confirm" title="Supprimer ?">
+                <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;">
+                        
+                </span>Cet élément sera définitivement perdu ! Êtes-vous sûr ?</p>
+            </div>
+            <img id="myElement" src="img/logo.png" />
             <?php if(isset ($_SESSION["connected"])) {
                 if ($_SESSION["connected"] == "true") {
                     ?>
@@ -54,7 +58,7 @@ class Banniere_Global_View {
             <?php
             }?>
 
-            <article id="form_inscr">
+            <article id="form_inscr" style="border-radius: 4px;background-color: #ffffff">
                 <label for="nom">Nom : </label>
                 <input type="text" id="nom_ins" name="nom"/>
                 <label for="prenom">Prenom : </label>

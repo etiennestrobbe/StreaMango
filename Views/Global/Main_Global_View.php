@@ -44,7 +44,7 @@
 		public function display($link,$param = 0) {
 			
 			$cssGlobal = array("general.css");
-			$jsGlobal = array("jquery-2.1.0.min.js", "jquery.sticky.js", "global.js","jquery.bpopup.min.js");
+			$jsGlobal = array("jquery-2.1.0.min.js", "jquery.sticky.js", "global.js","jquery.bpopup.min.js","jquery-ui-1.10.4.custom.min.js");
 			
 			$cssTotal = array_merge($cssGlobal, $this->css);
 			$jsTotal = array_merge($jsGlobal, $this->js);
