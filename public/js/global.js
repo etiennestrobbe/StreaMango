@@ -125,20 +125,18 @@ $(document).ready(function(){
         return false;
     });
 
+    // Note Films_View
+    $("#note input:radio").attr("checked", false);
+    $('#note input').click(function () {
+        $("#note span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
 
-    $(document).ready(function(){
-    //  Check Radio-box
-        $("#note input:radio").attr("checked", false);
-        $('#note input').click(function () {
-            $("#note span").removeClass('checked');
-            $(this).parent().addClass('checked');
-        });
-
-        $('input:radio').change(
-        function(){
-            var userRating = this.value;
-            alert(userRating);
-        }); 
+    $('input:radio').change(
+    function(){
+        var comment = document.getElementById("comment").value;
+        var userRating = this.value;
+        alert(userRating + " " + comment);
     });
 
 });

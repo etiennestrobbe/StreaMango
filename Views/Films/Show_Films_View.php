@@ -132,7 +132,7 @@ No film to show.
 
 	<section class="one">
 		<form>
-			<b>Commenter : </b><input type="text" size="50"><br/>
+			<b>Commenter : </b><input type="text" size="50" id="comment"><br/>
 			<b>Note : </b>
 			<div id="rating">
 			    <span><input type="radio" id="str5" value="5"><label for="str5"></label></span>
