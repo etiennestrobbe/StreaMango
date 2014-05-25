@@ -62,6 +62,7 @@ class Add_Stars_View extends Main_Global_View {
                     </section>
 
                     <section class="filmographie">
+					
                         <p class="msg">Filmographie</p>
 						<p>
                             <?php
