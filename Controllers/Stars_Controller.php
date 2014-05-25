@@ -134,9 +134,6 @@ class Stars_Controller {
         $list_acteurs_reals->addActeur($acteur);
         //}
         // Si la case real a été coché
-        /*if(isset($_POST["real"])){
-            $real = new Data_Realisateur($people);
-        }*/
 
         /* Recuperation image */
         if(isset($_POST["url"])){

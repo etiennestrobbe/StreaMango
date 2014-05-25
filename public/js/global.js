@@ -125,6 +125,20 @@ $(document).ready(function(){
         return false;
     });
 
+    $("#type_star").change(function(){
+        var value = $("#type_star").val();
+        var form_actor = $("#add_acteur");
+        var form_real = $("#add_real");
+        if(value == "real"){
+            form_actor.hide();
+            form_real.show();
+        }
+        else if(value == "actor"){
+            form_actor.show();
+            form_real.hide();
+        }
+    });
+
 
     $(document).ready(function(){
     //  Check Radio-box
