@@ -19,10 +19,7 @@ class Add_Stars_View extends Main_Global_View {
                 <?php
             }
             ?>
-        <select id="type_star" name="type_star">
-            <option value="actor">Acteur</option>
-            <option value="real">Réalisateur</option>
-        </select>
+        
         <section id="add_acteur" class="formulaire">
             <article class="formArticle">
                 <header>
@@ -42,6 +39,7 @@ class Add_Stars_View extends Main_Global_View {
                         <?php
                         insertInputText("Nom","nom");
                         insertInputText("Prénom","prenom");?>
+
                         <p> Nationalité :
                             <select name="nationalite">
                                 <?php
@@ -62,6 +60,10 @@ class Add_Stars_View extends Main_Global_View {
                                 <option value="f">Femme</option>
                             </select>
                         </p>
+						<select id="type_star" name="type_star">
+							<option value="actor">Acteur</option>
+							<option value="real">Réalisateur</option>
+						</select>
                     </section>
 
                     <section class="filmographie">
