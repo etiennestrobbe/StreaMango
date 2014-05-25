@@ -16,6 +16,7 @@ class Users_Controller {
         foreach($users as $user){
             if($user->getMdp() == $pass){
                 $_SESSION["connected"] = "true";
+                $_SESSION["login"] = $login;
                 echo 'true';
             }
             else{
@@ -27,6 +28,7 @@ class Users_Controller {
 
     public function deconnect(){
         $_SESSION["connected"] = "false";
+        $_SESSION["login"] = null;
     }
 
     public function signup(){

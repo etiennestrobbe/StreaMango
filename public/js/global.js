@@ -55,6 +55,7 @@ $(document).ready(function(){
         }
 
     });
+
     $('#delStar').click(function(){
         return confirm("Voulez vraiment supprimer cette star ?");
     })
@@ -122,23 +123,6 @@ $(document).ready(function(){
             }
         });
         return false;
-    });
-    $( "#dialog-confirm" ).hide();
-
-    $("#myElement").click(function() {
-        $( "#dialog-confirm" ).dialog({
-            resizable: false,
-            height:140,
-            modal: true,
-            buttons: {
-                "Delete all items": function() {
-                    $( this ).dialog( "close" );
-                },
-                Cancel: function() {
-                    $( this ).dialog( "close" );
-                }
-            }
-        });
     });
 
 

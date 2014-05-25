@@ -31,7 +31,7 @@ class Stars_Controller {
 
         $viewparams["films"] = $films;
         $view = new Add_Stars_View($viewparams);
-        $view->display("");
+        $view->display("","Stars");
 
     }
 
@@ -51,7 +51,7 @@ class Stars_Controller {
         $viewparams["star"] = $stars;
         $viewparams["films"] = $films;
         $view = new Edit_Stars_View($viewparams);
-        $view->display("");
+        $view->display("","Stars");
 
     }
 
@@ -161,21 +161,28 @@ class Stars_Controller {
 	
 	public function show($param){
         $star_to_show = Nf_ActeurReaManagement::getInstance()->idToPeople($param["id"]);
-        $actor = new Data_Acteur($star_to_show);
-        $real = new Data_Realisateur($star_to_show);
+        if($star_to_show) {
+            $actor = new Data_Acteur($star_to_show);
+            $real = new Data_Realisateur($star_to_show);
 
-        $star_to_show->portraits = Nf_ActeurReaManagement::getInstance()->getPortraits($star_to_show);
-        $filmForActor = Nf_FilmManagement::getInstance()->getFilmsParActeur($actor);
-        $filmForReal = Nf_FilmManagement::getInstance()->getFilmsParRea($real);
-        $films_of_stars = ($filmForActor)?$filmForActor:$filmForReal;
-        foreach ($films_of_stars as $film) {
-            $film->affiches = Nf_FilmManagement::getInstance()->getAffiches($film);
+            $star_to_show->portraits = Nf_ActeurReaManagement::getInstance()->getPortraits($star_to_show);
+            $filmForActor = Nf_FilmManagement::getInstance()->getFilmsParActeur($actor);
+            $filmForReal = Nf_FilmManagement::getInstance()->getFilmsParRea($real);
+            $films_of_stars = ($filmForActor) ? $filmForActor : $filmForReal;
+            foreach ($films_of_stars as $film) {
+                $film->affiches = Nf_FilmManagement::getInstance()->getAffiches($film);
+            }
+            $viewparam["star"] = $star_to_show;
+            $viewparam["films"] = $films_of_stars;
+        }
+        else{
+            $viewparam["star"] = null;
+            $viewparam["film"] = null;
         }
 
-        $viewparam1["star"] = $star_to_show;
-        $viewparam2["films"] = $films_of_stars;
-        $view = new Show_Stars_View($viewparam1,$viewparam2);
-        $view->display("");
+
+        $view = new Show_Stars_View($viewparam);
+        $view->display("","Stars");
     }
 
 
@@ -194,8 +201,36 @@ class Stars_Controller {
 
         $viewparams["stars"] = $stars;
         $view = new ListAll_Stars_View($viewparams);
-        $view->display("index.php?controller=Stars&action=add_star",1);
+        $view->display("index.php?controller=Stars&action=add_star","Stars",1);
 
 
+    }
+
+    public function search(){
+        $param = $_POST["search"];
+        $res = $this->privateSearch($param);
+        if($res){
+            $id["id"] = $res->getId();
+            $this->show($id);
+        }
+        else{
+            $this->show(null);
+        }
+
+    }
+
+    private function privateSearch($param){
+        $peoples = Nf_ActeurReaManagement::getInstance();
+        if(isset($param)) {
+            $termes = explode("%20",$param);
+            foreach($termes as $key => $value) {
+
+                $res = $peoples->getPersonnes($value);
+                foreach ($res as $key2 => $film) {
+                    return $film;
+                }
+            }
+        }
+        return null;
     }
 }

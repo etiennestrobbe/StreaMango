@@ -81,6 +81,18 @@ form input[type="text"],select{
 	color: black;
 	z-index: 9;
 }
+form input[type="password"],select{
+	min-width: 50px;
+	max-width: 250px;
+	background-color: rgba(255,255,255, 0.5);
+	color: black;
+	z-index: 9;
+}
+
+banniere form[id="form_inscr"]{
+    border: 1px solid white;
+}
+
 banniere form input{
 	z-index: 12;
 }
@@ -472,3 +484,4 @@ UNE PAGE
     background:#F90;
     color:#FFF;
 }
+
