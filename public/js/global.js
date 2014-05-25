@@ -125,6 +125,7 @@ $(document).ready(function(){
         return false;
     });
 
+    $("#add_real").hide();
     $("#type_star").change(function(){
         var value = $("#type_star").val();
         var form_actor = $("#add_acteur");
@@ -160,25 +161,6 @@ $(document).ready(function(){
             }
         });
     });
-    /*
-    $("#add_friend_button").click(function(){
-        alert("prout");
-        var userN = ("#userN").val();
-        var userS = ("#userS").val();
-        var friendN = ("#friendN").val();
-        var friendS = ("#friendS").val();
-        $.ajax({
-            type: "POST",
-            url: "index.php?controller=Users&action=add_friend",
-            data: "userN=" + userN+"&userS="+userS+"&friendN="+friendN+"&friendS="+friendS ,
-            success: function(html) {
-                if(html == 'true') {
-                    alert("Vous avez ajouté un nouvel ami !");
-                }
-            }
-        });
-
-    });*/
 
 });
 
