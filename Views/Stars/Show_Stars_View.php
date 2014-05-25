@@ -55,7 +55,7 @@ class Show_Stars_View extends Main_Global_View{
                 </article>
                 <?php
             if(!$this->films){
-                echo "<p class=\"msg\">Pas de filmographie</p>";
+                echo "<article id='films'><p class=\"msg\">Pas de filmographie</p></article>";
             }
             else {?>
                 <article id="films"><p class="msg">Filmographie :</p><?php
