@@ -56,8 +56,6 @@
 				<?php
 					}
 				?>
-
-
 			<!--<div class='url_img' id='f1'>Url d'une image<input name='url[]' type='text'/></div>-->
 		</div>
 	
