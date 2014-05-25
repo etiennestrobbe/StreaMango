@@ -137,7 +137,7 @@
 
 			$film = Nf_FilmManagement::getInstance()->addFilmComplet($new);
 			
-			echo("la ?");
+			/*echo("la ?");
 			echo("Test".$_POST['check_list_acteur']);
 			echo("TEST:".$test);
 
