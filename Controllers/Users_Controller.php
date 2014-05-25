@@ -59,4 +59,15 @@ class Users_Controller {
         $view->display("", "Users");
     }
 
+    public function add_friend(){
+        echo $id_to_add = $_GET["id"];
+        echo $name_session = $_GET["user"];
+        $users = Nf_UserDvdManagement::getInstance();
+        $the_user = $users->getUsers($name_session);
+        $the_friend = $users->getUsers($id_to_add);
+        $friend_manag = Nf_FriendManagement::getInstance();
+        echo "send : ".$friend_manag->sendInvitationAmi($the_user[0],$the_friend[0])."\n";
+        echo "accept : ".$friend_manag->acceptInvitationAmi($the_friend[0],$the_user[0]);
+    }
+
 } 

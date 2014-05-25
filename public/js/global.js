@@ -160,6 +160,22 @@ $(document).ready(function(){
             }
         });
     });
+    $("#add_friend_button").click(function(){
+        alert("prout");
+        var id = $("#id_friend").val();
+        var id_session = ("#id_session").val();
+        $.ajax({
+            type: "POST",
+            url: "index.php?controller=Users&action=add_friend",
+            data: "id=" + id+"&user="+id_session ,
+            success: function(html) {
+                if(html == 'true') {
+                    alert("Vous avez ajouté un nouvel ami !");
+                }
+            }
+        });
+
+    });
 
 });
 

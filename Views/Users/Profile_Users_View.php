@@ -24,8 +24,23 @@ Connectez-vous !
     <header>
         <?php echo $this->user->getPrenom();?> <?php echo $this->user->getNom(); ?>
     </header>
+                <?php
+                if(isset($_SESSION["connected"])) {
+                    if ($_SESSION["connected"] == "true") {
+                        $idSession = unserialize($_SESSION["user"]);
+                        if ($idSession->getId() != $this->user->getId()) {
 
-    <section classe="one">
+                            ?>
+                            <article id="add_friend">
+                                <a href="index.php?controller=Users&action=add_friend&id=<?php echo $this->user->getNom();?>&user=<?php echo $idSession->getNom();?>" id="add_friend_button">Ajouter en ami</a>
+                            </article>
+                        <?php
+                        }
+                    }
+                }
+                        ?>
+
+    <section class="one">
         <h2>Amis :</h2>
         <?php
             if(!$this->user->amis) {
@@ -39,7 +54,7 @@ Connectez-vous !
         ?>
     </section>
 
-    <section classe="one">
+    <section class="one">
         <h2>Notes :</h2>
         <?php
             if(!$this->user->notes) {
@@ -87,7 +102,7 @@ Connectez-vous !
             ?>
     </section>
 
-    <section classe="one">
+    <section class="one">
         <h2>Commentaires :</h2>
         <?php
             if(!$this->user->commentaires) {
