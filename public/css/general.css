@@ -71,21 +71,21 @@ form label{
 form input[type="submit"]{
 	background-color: rgba(255,255,255, 0.5);
 	color: black;
-	z-index: 15;
+	z-index: 9;
 }
 form input[type="text"],select{
 	min-width: 50px;
 	max-width: 250px;
 	background-color: rgba(255,255,255, 0.5);
 	color: black;
-	z-index: 15;
+	z-index: 9;
 }
 form input[type="password"]{
 	min-width: 50px;
 	max-width: 250px;
 	background-color: rgba(255,255,255, 0.5);
 	color: black;
-	z-index: 15;
+	z-index: 9;
 }
 
 banniere form[id="form_inscr"]{
@@ -199,6 +199,7 @@ FILMS
 
 article.formArticle {
 	padding-bottom: 30px;
+	min-width: 480px;
 }
 
 article.film {
@@ -312,6 +313,10 @@ FORMULAIRE
 	box-shadow: 0px 0px 3px #FFFFFF;
 }
 
+.url_img{
+	min-width: 470px;
+}
+
 .formulaire header, .one header{
 	color: white;
 	font-size: 200%;
@@ -332,9 +337,14 @@ FORMULAIRE
     clear: both;
 }
 
-.formulaire .role input{
+.formulaire .role input, .inFront{
 	position: relative;
-	left: 20px;
+	left: 0px;
+	top: -100px;
+}
+
+.formulaire .role input[type="text"]{
+	width: 150px;
 }
 
 .formulaire .role img{
@@ -344,10 +354,14 @@ FORMULAIRE
     height: 180px;
 }
 
-.formulaire .role{
+.role{
     float: left;
-    min-width: 250px;
+    min-width: 200px;
+    max-width: 200px;
+	height: 200px;
+	margin: 5px;
 }
+
 
 .formulaire .portrait input{
 	margin-left: 30px;
@@ -524,4 +538,9 @@ form input[type="submit"]{
 	background-color: rgba(255,255,255, 0.5);
 	color: black;
 	z-index: 9;
+}
+
+.msg{
+	position: relative;
+	top: -20px;
 }

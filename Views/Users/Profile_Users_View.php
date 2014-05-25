@@ -33,7 +33,7 @@ Connectez-vous !
             }
             foreach ($this->user->amis as $key => $ami) {
                 ?>
-                <a href="index.php?controller=users&action=show&id=<?php echo $ami->getUser()->getId();?>"><?php echo $ami->getAmi()->getPrenom();?> <?php echo $ami->getAmi()->getNom();?></a><br/>
+                <a href="index.php?controller=Users&action=show&id=<?php echo $ami->getAmi()->getId();?>"><?php echo $ami->getAmi()->getPrenom();?> <?php echo $ami->getAmi()->getNom();?></a><br/>
                 <?php
             }
         ?>
