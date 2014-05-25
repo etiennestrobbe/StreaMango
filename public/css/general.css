@@ -452,18 +452,24 @@ UNE PAGE
 }
 
 #note span {
-	float:right;
 	position:relative;
 }
 
-#note span input {
-    position:absolute;
-    top:0px;
-    left:0px;
-    opacity:0;
+#note span label {
+    display:inline-block;
+    width:20px;
+    height:20px;
+    text-align:center;
+    color:#FFF;
+    background:#F90;
+    font-size:20px;
+    margin-right:2px;
+    line-height:20px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
 }
 
-#note span label {
+#note #nul label {
     display:inline-block;
     width:20px;
     height:20px;
@@ -476,10 +482,40 @@ UNE PAGE
     border-radius:50%;
     -webkit-border-radius:50%;
 }
-#note span:hover ~ span label,
-#note span:hover label,
-#note span.checked label,
-#note span.checked ~ span label {
+
+#rating {
+	display: inline-block;
+}
+
+#rating span {
+	float:right;
+	position:relative;
+}
+
+#rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+
+#rating span label {
+    display:inline-block;
+    width:20px;
+    height:20px;
+    text-align:center;
+    color:#FFF;
+    background:#ccc;
+    font-size:20px;
+    margin-right:2px;
+    line-height:20px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+}
+#rating span:hover ~ span label,
+#rating span:hover label,
+#rating span.checked label,
+#rating span.checked ~ span label {
     background:#F90;
     color:#FFF;
 }
