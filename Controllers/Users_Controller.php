@@ -16,6 +16,7 @@ class Users_Controller {
         foreach($users as $user){
             if($user->getMdp() == $pass){
                 $_SESSION["connected"] = "true";
+                $_SESSION['user'] = serialize($user); 
                 echo 'true';
             }
             else{
