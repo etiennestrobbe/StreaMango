@@ -19,7 +19,7 @@ class Add_Stars_View extends Main_Global_View {
                 <?php
             }
             ?>
-			<section class="one">
+			<section class="two">
         <select id="type_star" name="type_star">
 							<option value="actor">Acteur</option>
 							<option value="real">Réalisateur</option>
