@@ -37,26 +37,28 @@
 			<label for="desc">Description :</label><br>
 			<textarea name="desc" cols="70" rows="7"><?php echo $this->film->getResume(); ?></textarea><br>
 		</div>
-		
+		    
+	  <!--
 		<div class="realisateur">
 			<label for="real">Realisateur :</label><br>
-			<input type="text" name="real" value='<?php echo($this->film->getRealisateur()->getPrenom(). " " .$this->film->getRealisateur()->getNom());?>'><br>
+			<input type="text" name="real" value='<?php /*echo($this->film->getRealisateur()->getPrenom(). " " .$this->film->getRealisateur()->getNom());*/?>'><br>
 	    
 	   <br>
 		 <label for="real">Acteurs/Personnages :</label><br>			
 		<ul>
-			<?php 
-				foreach($this->film->getPersonnages() as $role){
+			<?php /*
+				foreach($this->film->getPersonnages() as $role){*/
 			?>
 			<li>
-				<input type="text" name="actor" value='<?php echo(utf8_encode($role->acteur->getPrenom()) . " " . utf8_encode($role->acteur->getNom())); ?>'>
-				<input type="text" name="role" value='<?php echo utf8_encode($role->nom); ?>'><br>
+				<input type="text" name="actor" value='<?php /*echo(utf8_encode($role->acteur->getPrenom()) . " " . utf8_encode($role->acteur->getNom())); */?>'>
+				<input type="text" name="role" value='<?php /*echo utf8_encode($role->nom); */?>'><br>
 			</li>
 			<?php
-				}
+				//}
 			?>
 		</ul>
 		</div>
+		// -->
 		
 	<input type="submit">	
 	</form>
