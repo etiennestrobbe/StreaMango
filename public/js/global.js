@@ -160,14 +160,17 @@ $(document).ready(function(){
             }
         });
     });
+    /*
     $("#add_friend_button").click(function(){
         alert("prout");
-        var id = $("#id_friend").val();
-        var id_session = ("#id_session").val();
+        var userN = ("#userN").val();
+        var userS = ("#userS").val();
+        var friendN = ("#friendN").val();
+        var friendS = ("#friendS").val();
         $.ajax({
             type: "POST",
             url: "index.php?controller=Users&action=add_friend",
-            data: "id=" + id+"&user="+id_session ,
+            data: "userN=" + userN+"&userS="+userS+"&friendN="+friendN+"&friendS="+friendS ,
             success: function(html) {
                 if(html == 'true') {
                     alert("Vous avez ajouté un nouvel ami !");
@@ -175,7 +178,7 @@ $(document).ready(function(){
             }
         });
 
-    });
+    });*/
 
 });
 

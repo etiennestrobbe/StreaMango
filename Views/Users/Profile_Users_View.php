@@ -2,7 +2,7 @@
     class Profile_Users_View extends Main_Global_View {
 
         private $user;
-        
+
         public function Profile_Users_View($viewparams) {
             $this->user = $viewparams["user"];
         }
@@ -34,7 +34,7 @@
 
                             ?>
                             <article id="add_friend">
-                                <a href="index.php?controller=Users&action=add_friend&id=<?php echo $this->user->getNom();?>&user=<?php echo $idSession->getNom();?>" id="add_friend_button">Ajouter en ami</a>
+                                <a href="index.php?controller=Users&action=add_friend&friendN=<?php echo $this->user->getNom();?>&friendS=<?php echo $this->user->getPrenom();?>&userN=<?php echo $idSession->getNom();?>&userS=<?php echo $idSession->getPrenom();?>" id="add_friend_button">Ajouter en ami</a>
                             </article>
                         <?php
                         }

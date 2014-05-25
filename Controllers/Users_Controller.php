@@ -60,14 +60,17 @@ class Users_Controller {
     }
 
     public function add_friend(){
-        echo $id_to_add = $_GET["id"];
-        echo $name_session = $_GET["user"];
+        echo $friendN = $_GET["friendN"];
+        echo $friendS = $_GET["friendS"];
+        echo $userN = $_GET["userN"];
+        echo $userS = $_GET["userS"];
         $users = Nf_UserDvdManagement::getInstance();
-        $the_user = $users->getUsers($name_session);
-        $the_friend = $users->getUsers($id_to_add);
+        echo "the user :". $the_user = $users->getUser($userN,$userS);
+        echo "the friend :".$the_friend = $users->getUser($friendN,$friendS);
         $friend_manag = Nf_FriendManagement::getInstance();
-        echo "send : ".$friend_manag->sendInvitationAmi($the_user[0],$the_friend[0])."\n";
-        echo "accept : ".$friend_manag->acceptInvitationAmi($the_friend[0],$the_user[0]);
+        echo "send : ".$friend_manag->sendInvitationAmi($the_user,$the_friend)."\n";
+        echo "accept : ".$friend_manag->acceptInvitationAmi($the_friend,$the_user);
+        header('Location:index.php?controller=Users&action=show&id='.Nf_UserDvdManagement::getInstance()->userToId($the_user));
     }
 
 } 
