@@ -20,7 +20,7 @@ class Show_Stars_View extends Main_Global_View{
         <section><?php
         if(!$this->star){
             ?>
-            <article>
+             <article class="msg">
                 Cette star n'existe pas !!
             </article></section>
         <?php
@@ -58,7 +58,7 @@ class Show_Stars_View extends Main_Global_View{
                 echo "<p>Pas de filmographie</p>";
             }
             else {?>
-                <article id="films">Filmographie :<?php
+                <article id="films"><p class="msg">Filmographie :</p><?php
                 foreach ($this->films as $film) {
 				?>					
 					<a href="./index.php?controller=Films&action=show&id=<?php echo $film->getId();?>">
