@@ -19,15 +19,17 @@ class Add_Stars_View extends Main_Global_View {
                 <?php
             }
             ?>
+			<section class="two">
         <select id="type_star" name="type_star">
-            <option value="actor">Acteur</option>
-            <option value="real">Réalisateur</option>
-        </select>
+							<option value="actor">Acteur</option>
+							<option value="real">Réalisateur</option>
+				</select>
         <section id="add_acteur" class="formulaire">
             <article class="formArticle">
                 <header>
                     Ajouter un nouvel acteur :
                 </header>
+				
                 <form name="form_star" action="index.php?controller=Stars&action=add_the_star" method="post" onsubmit="return validateFormStar();">
                     <section class="portrait">
                         <div id='file_tools'>
@@ -42,6 +44,7 @@ class Add_Stars_View extends Main_Global_View {
                         <?php
                         insertInputText("Nom","nom");
                         insertInputText("Prénom","prenom");?>
+
                         <p> Nationalité :
                             <select name="nationalite">
                                 <?php
@@ -116,6 +119,7 @@ class Add_Stars_View extends Main_Global_View {
                 <header>
                     Ajouter un nouveau réalisateur :
                 </header>
+				
                 <form name="form_star" action="index.php?controller=Stars&action=add_the_star" method="post" onsubmit="return validateFormStar();">
                     <section class="portrait">
                         <div id='file_tools'>
@@ -157,7 +161,7 @@ class Add_Stars_View extends Main_Global_View {
 
 
 
-            </article></section>
+            </article></section></section>
 
         <?php
         $content = ob_get_contents();

@@ -83,7 +83,7 @@
                             }
                             ?>
                                 <div id="hiddenRole<?php echo $actor->getId()?>">
-                                    <p>Role :<input type="text" name="role<?php echo $actor->getId();?>"></p>
+                                    <p class="inFront">Role :</p><p><input type="text" name="role<?php echo $actor->getId();?>"></p>
                                 </div>
 
                             </div>
