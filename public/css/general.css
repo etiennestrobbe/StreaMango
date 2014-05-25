@@ -44,9 +44,9 @@ banniere img{
 
 #inscription{
 	position: relative;
-	right: -90px;
-	top: -200px;
-	padding: 100px;
+	z-index: 7;
+	right: -110px;
+	top: -110px;
 	height: 20px;
 	width: 80px;
 }
@@ -55,12 +55,6 @@ banniere img{
 	float: right;
 	margin: 10px;
 	margin-right: 50px;
-}
-
-#inscription p{
-	position: relative;
-	top: -100px;
-	right: 90%;
 }
 
 banniere form{
@@ -74,19 +68,24 @@ form label{
 	display: block;
 	z-index: 12;
 }
+form input[type="submit"]{
+	background-color: rgba(255,255,255, 0.5);
+	color: black;
+	z-index: 15;
+}
 form input[type="text"],select{
 	min-width: 50px;
 	max-width: 250px;
 	background-color: rgba(255,255,255, 0.5);
 	color: black;
-	z-index: 9;
+	z-index: 15;
 }
-form input[type="password"],select{
+form input[type="password"]{
 	min-width: 50px;
 	max-width: 250px;
 	background-color: rgba(255,255,255, 0.5);
 	color: black;
-	z-index: 9;
+	z-index: 15;
 }
 
 banniere form[id="form_inscr"]{
@@ -485,3 +484,8 @@ UNE PAGE
     color:#FFF;
 }
 
+form input[type="submit"]{
+	background-color: rgba(255,255,255, 0.5);
+	color: black;
+	z-index: 9;
+}

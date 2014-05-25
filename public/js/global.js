@@ -99,7 +99,7 @@ $(document).ready(function(){
     /* popup inscription */
     var pop = $('#form_inscr');
     pop.hide();
-    $("#inscription").click(function(){
+    $("#inscriptionF").click(function(){
         pop.bPopup({
             speed:800,
             transition:'slideIn'
