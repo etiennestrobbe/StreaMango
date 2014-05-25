@@ -9,9 +9,11 @@
 ?>
 
 <article id="welcome" class="one">
-	<header>Bienvenue dans notre biblioth&egrave;que de films!</header>
+	<header>Bienvenue dans votre biblioth&egrave;que de films!</header>
 
-	Vous serez ici chez vous, et nous mangerons des BADLONEEEEES !
+	Ici, vous pouvez consulter, éditer, ajouter des films ainsi que des stars (acteurs ou réalisateurs).
+	N'hésitez pas à vous créer un profil. Il vous permettra d'ajouter des amis ou encore de commenter et noter les films.
+	
 	</article>
 
 <?php

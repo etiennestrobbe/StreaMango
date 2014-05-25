@@ -12,8 +12,10 @@
             if($this->user == null) {
 ?>
 
-<article>
-Connectez-vous !
+<article class="one">
+	<article class="msg">
+		Connectez-vous !
+	</article>
 </article>
 
 <?php

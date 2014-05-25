@@ -43,6 +43,7 @@ if (! $test)
 {
 	define("CONNEXION", mysql_connect("localhost", "root", "password"));
 	mysql_select_db("db", constant("CONNEXION"));
+	mysql_set_charset( 'utf8' );
 }
 
 ?>
