@@ -49,6 +49,7 @@ class Users_Controller {
             $user = Nf_UserDvdManagement::getInstance()->idToUser($params["id"]);
             $user->commentaires = Nf_CommNoteManagement::getInstance()->getCommentairesParUser($user);
             $user->notes = Nf_CommNoteManagement::getInstance()->getNotesParUser($user);
+            $user->amis = Nf_FriendManagement::getInstance()->getAmis($user, "ACCEPTE");
         }
         else {
             $user = null;
