@@ -58,7 +58,7 @@ class Add_Stars_View extends Main_Global_View {
                             </select>
                             </p>
                         <?php insertInputText("Année de naissance","naissance");?>
-                        <input type="checkbox" id="check_mort" name="check_mort" onclick="displayMort();"/>Décédé <p id="input_mort"></p>
+                        <input type="checkbox" id="check_mort" name="check_mort"/>Décédé <p id="hideDeath">Date du décès<input type="text" name="deces"/></p>
                         <p>Sexe
                             <select name="sexe">
                                 <option value="m">Homme</option>
@@ -106,7 +106,6 @@ class Add_Stars_View extends Main_Global_View {
 
 
                     </section>
-                    <!-- TODO check en JS si tous les truc sont bien remplis -->
                     <input type="submit" value="Ajouter"/>
                 </form>
 
@@ -120,22 +119,22 @@ class Add_Stars_View extends Main_Global_View {
                     Ajouter un nouveau réalisateur :
                 </header>
 				
-                <form name="form_star" action="index.php?controller=Stars&action=add_the_star" method="post" onsubmit="return validateFormStar();">
+                <form name="form_star" action="index.php?controller=Stars&action=add_the_real" method="post" onsubmit="return validateFormStar();">
                     <section class="portrait">
                         <div id='file_tools'>
                             <img src='./public/img/add.png' id='add_file' title='Add new input' style="width: 30px"/>
                             <img src='./public/img/remove.png' id='del_file' title='Delete' style="width: 30px"/>
                         </div>
-                        <div class='url_img' id='f1'>Url d'une image :<input name='url[]' type='text'/></div>
+                        <div class='url_img' id='f1'>Url d'une image :<input name='urlReal[]' type='text'/></div>
 
                     </section>
 
                     <section class="informations">
                         <?php
-                        insertInputText("Nom","nom");
-                        insertInputText("Prénom","prenom");?>
+                        insertInputText("Nom","nomReal");
+                        insertInputText("Prénom","prenomReal");?>
                         <p> Nationalité :
-                            <select name="nationalite">
+                            <select name="nationaliteReal">
                                 <?php
                                 $enumNationalite = Data_NATIONALITE::getValues();
                                 foreach($enumNationalite as $nationalite) {
@@ -146,10 +145,10 @@ class Add_Stars_View extends Main_Global_View {
                                 ?>
                             </select>
                         </p>
-                        <?php insertInputText("Année de naissance","naissance");?>
-                        <input type="checkbox" id="check_mort" name="check_mort" onclick="displayMort();"/>Décédé <p id="input_mort"></p>
+                        <?php insertInputText("Année de naissance","naissanceReal");?>
+                        <input type="checkbox" id="check_mortReal" name="check_mortReal"/>Décédé <p id="hideDeathReal">Date du décès<input type="text" name="decesReal"/></p>
                         <p>Sexe
-                            <select name="sexe">
+                            <select name="sexeReal">
                                 <option value="m">Homme</option>
                                 <option value="f">Femme</option>
                             </select>

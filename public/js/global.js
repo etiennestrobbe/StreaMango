@@ -7,8 +7,38 @@ function displayMort(){
         inputToChange.innerHTML = "";
     }
 }
+function displayMortReal(){
+    var inputToChange = document.getElementById("input_mort");
+    if(document.getElementById("check_mortReal").checked){
+        inputToChange.innerHTML = "";
+    }
+    else{
+        inputToChange.innerHTML = "";
+    }
+}
+
 
 $(document).ready(function(){
+    $("#hideDeathReal").hide();
+    $("#check_mortReal").change(function(){
+        if($(this).is(":checked")){
+            $("#hideDeathReal").show();
+        }
+        else{
+            $("#hideDeathReal").hide();
+        }
+
+    });
+    $("#hideDeath").hide();
+    $("#check_mort").change(function(){
+        if($(this).is(":checked")){
+            $("#hideDeath").show();
+        }
+        else{
+            $("#hideDeath").hide();
+        }
+
+    });
     // Show and hide upload image
     var counter = 2;
     $('#del_file').hide();

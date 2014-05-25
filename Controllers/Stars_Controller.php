@@ -155,6 +155,54 @@ class Stars_Controller {
         header('Location:index.php?controller=Stars&action=listAllStar');
 
     }
+
+    public function add_the_real(){
+        /* Récupération des données $_POST */
+        $nom = $_POST["nomReal"];
+        $prenom = $_POST["prenomReal"];
+        $nationalite = $_POST["nationaliteReal"];
+        $naissance = (int)$_POST["naissanceReal"];
+        $sex = ($_POST["sexeReal"]=="f");
+
+
+
+        /* Init des DB */
+        $list_films = Nf_FilmManagement::getInstance();
+        $list_acteurs_reals = Nf_ActeurReaManagement::getInstance();
+
+
+        /* Init date dèces si checked */
+        if(isset($_POST["check_mortReal"])){
+            $date_mort = $_POST["decesReal"];
+        }
+
+
+        /* Creation de l'objet acteur */
+        $people = new Data_People($nom,$prenom,$naissance,$nationalite,$sex);
+
+        /* S'il est mort on ajoute sa date de mort */
+        if(isset($date_mort)){
+            $people->setMort($date_mort);
+        }
+        // Si la case acteur a été coché
+        //if(isset($_POST["acteur"])){
+        $acteur = new Data_Realisateur($people);
+        $list_acteurs_reals->addRealisateur($acteur);
+        //}
+        // Si la case real a été coché
+
+        /* Recuperation image */
+        if(isset($_POST["urlReal"])) {
+            foreach ($_POST["urlReal"] as $key => $a_file) {
+                $list_acteurs_reals->addPortraitAUnePersonne($acteur, $a_file);
+            }
+        }
+
+        header('Location:index.php?controller=Stars&action=listAllStar');
+
+    }
+
+
 	
 	public function show($param){
         $star_to_show = Nf_ActeurReaManagement::getInstance()->idToPeople($param["id"]);
