@@ -79,7 +79,7 @@ $(document).ready(function(){
                 }
                 else    {
                     $("#add_err").css('display', 'inline', 'important');
-                    $("#add_err").html("<img src='images/alert.png' />Wrong username or password");
+                    $("#add_err").html("<div class=\"alert\">Mauvais login ou mot de passe !</div>");
                 }
             }
         });
