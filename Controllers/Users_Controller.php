@@ -44,4 +44,16 @@ class Users_Controller {
 
     }
 
+    public function show($params) {
+        if($params["id"] != 0) {
+            $user = Nf_UserDvdManagement::getInstance()->idToUser($params["id"]);
+        }
+        else {
+            $user = null;
+        }
+
+        $view = new Profile_Users_View($user);
+        $view->display();
+    }
+
 } 
