@@ -21,6 +21,8 @@ No film to show.
 ?>
 
 <article class="one">
+		<a  href="./index.php?controller=Films&action=edit&id=<?php echo $this->film->getId(); ?>">Editer</a>
+        <a id="delFilm" href="index.php?controller=Films&action=delete&id=<?php echo $this->film->getId();?>">Supprimer</a>
 	<header>
 		<?php echo $this->film->getTitre(); ?>
 	</header>
@@ -145,9 +147,7 @@ No film to show.
 	</section>
 	
 	<footer>
-		<a  href="./index.php?controller=Films&action=edit&id=<?php echo $this->film->getId(); ?>">Editer</a>
-
-        <a id="delFilm" href="index.php?controller=Films&action=delete&id=<?php echo $this->film->getId();?>">Supprimer</a>
+		
 
 		
 	</footer>
