@@ -126,7 +126,20 @@ $(document).ready(function(){
     });
 
 
+    $(document).ready(function(){
+    //  Check Radio-box
+        $("#note input:radio").attr("checked", false);
+        $('#note input').click(function () {
+            $("#note span").removeClass('checked');
+            $(this).parent().addClass('checked');
+        });
 
+        $('input:radio').change(
+        function(){
+            var userRating = this.value;
+            alert(userRating);
+        }); 
+    });
 
 });
 
