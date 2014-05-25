@@ -38,7 +38,7 @@ $(document).ready(function(){
         else{
             $('#'+check).prop('checked',true);
             $('#'+nam).show(400);
-            $(this).css({ opacity: 0.5 });
+            $(this).css({ opacity: 0.3 });
         }
     });
     // Show and hide searchBarre
@@ -139,20 +139,26 @@ $(document).ready(function(){
         }
     });
 
+    // Note Films_View
+    $("#rating input:radio").attr("checked", false);
+    $('#rating input').click(function () {
+        $("#rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+        console.log();
 
-    $(document).ready(function(){
-    //  Check Radio-box
-        $("#note input:radio").attr("checked", false);
-        $('#note input').click(function () {
-            $("#note span").removeClass('checked');
-            $(this).parent().addClass('checked');
+    $('#rating input:radio').change(
+    function(){
+        var id = $("#rating").attr("film");
+
+        $.ajax({
+            type: "POST",
+            url: "index.php?controller=Films&action=rate&id=" + id,
+            data: "rating=" + this.value + "&comment=" + $("#comment").val(),
+            success: function(html) {
+                window.location="index.php?controller=Films&action=show&id=" + id;
+            }
         });
-
-        $('input:radio').change(
-        function(){
-            var userRating = this.value;
-            alert(userRating);
-        }); 
     });
 
 });

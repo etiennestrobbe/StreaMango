@@ -20,7 +20,7 @@ class ListAll_Stars_View extends Main_Global_View{
         <section id="acteurs"><?php
         if(!$this->stars){
             ?>
-            <article>
+            <article class="msg">
                 Aucune star !
             </article></section>
         <?php

@@ -16,6 +16,7 @@ class Users_Controller {
         foreach($users as $user){
             if($user->getMdp() == $pass){
                 $_SESSION["connected"] = "true";
+                $_SESSION['user'] = serialize($user);
                 $_SESSION["login"] = $login;
                 echo 'true';
             }
@@ -41,6 +42,21 @@ class Users_Controller {
 
         echo (Nf_UserDvdManagement::getInstance()->addUser($new_user))?'true':'false';
 
+    }
+
+    public function show($params) {
+        if($params["id"] != 0) {
+            $user = Nf_UserDvdManagement::getInstance()->idToUser($params["id"]);
+            $user->commentaires = Nf_CommNoteManagement::getInstance()->getCommentairesParUser($user);
+            $user->notes = Nf_CommNoteManagement::getInstance()->getNotesParUser($user);
+            $user->amis = Nf_FriendManagement::getInstance()->getAmis($user, "ACCEPTE");
+        }
+        else {
+            $user = null;
+        }
+        $viewparams["user"] = $user;
+        $view = new Profile_Users_View($viewparams);
+        $view->display("", "Users");
     }
 
 } 
