@@ -41,7 +41,7 @@
 		*
 		* @return void
 		*/
-		public function display($link,$param = 0) {
+		public function display($link,$controller,$param = 0) {
 			
 			$cssGlobal = array("general.css");
 			$jsGlobal = array("jquery-2.1.0.min.js", "jquery.sticky.js", "global.js","jquery.bpopup.min.js","jquery-ui-1.10.4.custom.min.js");
@@ -54,7 +54,7 @@
 			$ban = new Banniere_Global_View();
 			$nav = new Menu_Global_View();
             if($param !=0){
-                $search = new Search_Global_View($link);
+                $search = new Search_Global_View($link,$controller);
             }
 
 			$footer = new Footer_Global_View();

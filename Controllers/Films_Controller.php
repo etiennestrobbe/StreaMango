@@ -22,24 +22,29 @@
 			$viewparams["films"] = $films;
 			
 			$view = new ListAll_Films_View($viewparams);
-			$view->display("index.php?controller=Films&action=add",1);
+			$view->display("index.php?controller=Films&action=add","Films",1);
 		}
 
 		public function show($params) {
-			$film = Nf_FilmManagement::getInstance()->idToFilm($params["id"]);
-			$film->affiches = Nf_FilmManagement::getInstance()->getAffiches($film);
-			$film->commentaires = Nf_CommNoteManagement::getInstance()->getCommentairesParFilm($film);
+            $film = Nf_FilmManagement::getInstance()->idToFilm($params["id"]);
+            if($film) {
+                $film->affiches = Nf_FilmManagement::getInstance()->getAffiches($film);
+                $film->commentaires = Nf_CommNoteManagement::getInstance()->getCommentairesParFilm($film);
 
-			$viewparams["film"] = $film;
+                $viewparams["film"] = $film;
+            }
+            else {
+                $viewparams["film"] = null;
+            }
 
 			$view = new Show_Films_View($viewparams);
-			$view->display("");
+			$view->display("","Films");
 		}
 		
 		public function edit($params) {
 			$film = Nf_FilmManagement::getInstance()->idToFilm($params["id"]);
 			$view = new Edit_Films_View($film);
-			$view->display("");
+			$view->display("","Films");
 		}
 		
 		public function delete($params) {
@@ -99,7 +104,7 @@
 			$viewparams["actors"] = $acteurs;			
 			
 			$view = new Add_Films_View($viewparams);
-			$view->display("");
+			$view->display("","Films");
 		}
 		
 		public function validateAdd($params) {
@@ -147,5 +152,32 @@
 		
 			//header('Location:index.php');
 		}
+
+        public function search(){
+            $param = $_POST["search"];
+            $res = $this->privateSearch($param);
+            if($res){
+                $id["id"] = $res->getId();
+                $this->show($id);
+            }
+            else{
+                $this->show(null);
+            }
+
+        }
+
+        private function privateSearch($param){
+            $films = Nf_FilmManagement::getInstance();
+            if(isset($param)) {
+                $termes = explode("%20",$param);
+                foreach($termes as $key => $value) {
+
+                    $res = $films->getFilmsParTitre($value);
+                    foreach ($res as $key2 => $film) {
+                        return $film;
+                    }
+                }
+            }
+            return null;
+        }
 	}
-?>

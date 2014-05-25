@@ -5,9 +5,9 @@ class Show_Stars_View extends Main_Global_View{
     private $star;
     private $films;
 
-    public function Show_Stars_View($param1,$param2){
-        $this->star = $param1["star"];
-        $this->films = $param2["films"];
+    public function Show_Stars_View($param){
+        $this->star = $param["star"];
+        $this->films = $param["films"];
     }
     /**
      * Permet d'obtenir le contenu principal de la page.

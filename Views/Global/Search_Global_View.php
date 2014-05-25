@@ -9,8 +9,10 @@
 class Search_Global_View {
 
     private $link;
+    private $controller;
 
-    public function Search_Global_View($param){
+    public function Search_Global_View($param,$controller){
+        $this->controller = $controller;
         $this->link = $param;
     }
 
@@ -18,9 +20,10 @@ class Search_Global_View {
         ob_start();
         ?>
 <section id="barre-recherche">
-    <img id="loupe" src="img/loupe.png" onClick="hideShowResearch();"/>
-    <form>
+    <img id="loupe" src="img/loupe.png"/>
+    <form method="post" action="index.php?controller=<?php echo $this->controller;?>&action=search">
         <input type="text" id="search" name="search"/>
+        <input type="submit" id="controller_search" value="Search"/>
     </form>
     <a href="<?php echo $this->link;?>" ><img id="plus" src="img/ajouter.png"/></a>
 </section>
