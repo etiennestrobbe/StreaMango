@@ -126,17 +126,25 @@ $(document).ready(function(){
     });
 
     // Note Films_View
-    $("#note input:radio").attr("checked", false);
-    $('#note input').click(function () {
-        $("#note span").removeClass('checked');
+    $("#rating input:radio").attr("checked", false);
+    $('#rating input').click(function () {
+        $("#rating span").removeClass('checked');
         $(this).parent().addClass('checked');
     });
+        console.log();
 
-    $('input:radio').change(
+    $('#rating input:radio').change(
     function(){
-        var comment = document.getElementById("comment").value;
-        var userRating = this.value;
-        alert(userRating + " " + comment);
+        var id = $("#rating").attr("film");
+
+        $.ajax({
+            type: "POST",
+            url: "index.php?controller=Films&action=rate&id=" + id,
+            data: "rating=" + this.value + "&comment=" + $("#comment").val(),
+            success: function(html) {
+                window.location="index.php?controller=Films&action=show&id=" + id;
+            }
+        });
     });
 
 });

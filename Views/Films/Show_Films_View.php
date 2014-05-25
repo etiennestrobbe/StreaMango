@@ -134,7 +134,7 @@ No film to show.
 		<form>
 			<b>Commenter : </b><input type="text" size="50" id="comment"><br/>
 			<b>Note : </b>
-			<div id="rating">
+			<div id="rating" film="<?php echo $this->film->getId();?>">
 			    <span><input type="radio" id="str5" value="5"><label for="str5"></label></span>
 			    <span><input type="radio" id="str4" value="4"><label for="str4"></label></span>
 			    <span><input type="radio" id="str3" value="3"><label for="str3"></label></span>

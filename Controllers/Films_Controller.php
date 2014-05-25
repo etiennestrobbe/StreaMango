@@ -188,4 +188,8 @@
             }
             return null;
         }
+
+        public function rate($params) {
+            echo 'true';
+        }
 	}
