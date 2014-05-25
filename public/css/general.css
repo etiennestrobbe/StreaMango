@@ -395,7 +395,7 @@ FORMULAIRE
 	margin: 10px;
 }
 
-.formulaire #file_tools{
+.formulaire #file_tools, .formulaire #file_tools2{
 	position: float;
 	float: right;
 }
