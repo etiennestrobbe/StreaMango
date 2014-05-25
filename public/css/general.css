@@ -540,6 +540,12 @@ form input[type="submit"]{
 	z-index: 9;
 }
 
+.alert{
+	position: relative;
+	right: 250px;
+	background-color: black;
+}
+
 .msg{
 	position: relative;
 	top: -20px;
