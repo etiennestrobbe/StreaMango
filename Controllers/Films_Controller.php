@@ -190,6 +190,18 @@
         }
 
         public function rate($params) {
-            echo 'true';
+            $film = Nf_FilmManagement::getInstance()->idToFilm($params['id']);
+            if($_SESSION["connected"]) {
+                $user = unserialize($_SESSION['user']);
+                echo($user);
+                $new_comment = new Data_Commentaire($user, $film, $_POST["comment"]);
+                $new_rating = new Data_Note($user, $film, 2 * $_POST["rating"]);
+
+                Nf_CommNoteManagement::getInstance()->addCommentaire($new_comment);
+                Nf_CommNoteManagement::getInstance()->addNote($new_rating);
+            }
+            else {
+                echo "false";
+            }
         }
 	}
