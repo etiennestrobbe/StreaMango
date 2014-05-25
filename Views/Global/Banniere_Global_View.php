@@ -28,7 +28,9 @@ class Banniere_Global_View {
                         <label for="pass">Mot de passe : </label>
                         <input type="password" id="pass" name="pass"/>
                         <input type="submit" id="submit_log" name="ok" value="OK"/>
-						<div id="inscription">Inscription ?</div>
+                        <div id="inscription">
+                            <a id="inscriptionF" href="#">Inscription ?</a>
+                        </div>
                     </form>
 
                     
@@ -45,7 +47,7 @@ class Banniere_Global_View {
                     <input type="password" id="pass" name="pass"/>
                     <input type="submit" id="submit_log" name="ok" value="OK"/>
 					<div id="inscription">
-							<a href="#">Inscription ?</a>
+							<a id="inscriptionF" href="#">Inscription ?</a>
 					</div>
                 </form>
 

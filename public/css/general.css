@@ -44,9 +44,9 @@ banniere img{
 
 #inscription{
 	position: relative;
-	right: -90px;
-	top: -200px;
-	padding: 100px;
+	z-index: 7;
+	right: -110px;
+	top: -110px;
 	height: 20px;
 	width: 80px;
 }
@@ -55,12 +55,6 @@ banniere img{
 	float: right;
 	margin: 10px;
 	margin-right: 50px;
-}
-
-#inscription p{
-	position: relative;
-	top: -100px;
-	right: 90%;
 }
 
 banniere form{
@@ -74,19 +68,24 @@ form label{
 	display: block;
 	z-index: 12;
 }
+form input[type="submit"]{
+	background-color: rgba(255,255,255, 0.5);
+	color: black;
+	z-index: 15;
+}
 form input[type="text"],select{
 	min-width: 50px;
 	max-width: 250px;
 	background-color: rgba(255,255,255, 0.5);
 	color: black;
-	z-index: 9;
+	z-index: 15;
 }
-form input[type="password"],select{
+form input[type="password"]{
 	min-width: 50px;
 	max-width: 250px;
 	background-color: rgba(255,255,255, 0.5);
 	color: black;
-	z-index: 9;
+	z-index: 15;
 }
 
 banniere form[id="form_inscr"]{
@@ -453,18 +452,24 @@ UNE PAGE
 }
 
 #note span {
-	float:right;
 	position:relative;
 }
 
-#note span input {
-    position:absolute;
-    top:0px;
-    left:0px;
-    opacity:0;
+#note span label {
+    display:inline-block;
+    width:20px;
+    height:20px;
+    text-align:center;
+    color:#FFF;
+    background:#F90;
+    font-size:20px;
+    margin-right:2px;
+    line-height:20px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
 }
 
-#note span label {
+#note #nul label {
     display:inline-block;
     width:20px;
     height:20px;
@@ -477,11 +482,46 @@ UNE PAGE
     border-radius:50%;
     -webkit-border-radius:50%;
 }
-#note span:hover ~ span label,
-#note span:hover label,
-#note span.checked label,
-#note span.checked ~ span label {
+
+#rating {
+	display: inline-block;
+}
+
+#rating span {
+	float:right;
+	position:relative;
+}
+
+#rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+
+#rating span label {
+    display:inline-block;
+    width:20px;
+    height:20px;
+    text-align:center;
+    color:#FFF;
+    background:#ccc;
+    font-size:20px;
+    margin-right:2px;
+    line-height:20px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+}
+#rating span:hover ~ span label,
+#rating span:hover label,
+#rating span.checked label,
+#rating span.checked ~ span label {
     background:#F90;
     color:#FFF;
 }
 
+form input[type="submit"]{
+	background-color: rgba(255,255,255, 0.5);
+	color: black;
+	z-index: 9;
+}

@@ -54,6 +54,45 @@ No film to show.
 		</p>
 		<p>Style : <?php echo utf8_encode($this->film->getStyle()); ?></p>
 		<p>Langue : <?php echo utf8_encode($this->film->getLangue()); ?></p>
+		<p id="note">Note :
+			<?php
+				if(! $this->film->note) {
+					echo utf8_encode("Ce film n'a pas encore de notes.");
+				}
+				else {
+					if($this->film->note >= 9) {
+			?>
+			<span><label></label></span>
+			<?php
+					}
+					if($this->film->note >= 7) {
+			?>
+			<span><label></label></span>
+			<?php
+					}
+					if($this->film->note >= 5) {
+			?>
+			<span><label></label></span>
+			<?php
+					}
+					if($this->film->note >= 3) {
+			?>
+			<span><label></label></span>
+			<?php
+					}
+					if($this->film->note >= 1) {
+			?>
+			<span><label></label></span>
+			<?php
+					}
+					else {
+			?>
+			<span><label id="nul"></label></span>
+			<?php
+					}
+				}
+			?>
+		</p>
 		<h2>Description</h2>
 		<p><?php echo utf8_encode($this->film->getResume()); ?></p>
 		<h2>Acteurs</h2>
@@ -95,7 +134,7 @@ No film to show.
 		<form>
 			<b>Commenter : </b><input type="text" size="50"><br/>
 			<b>Note : </b>
-			<div id="note">
+			<div id="rating">
 			    <span><input type="radio" id="str5" value="5"><label for="str5"></label></span>
 			    <span><input type="radio" id="str4" value="4"><label for="str4"></label></span>
 			    <span><input type="radio" id="str3" value="3"><label for="str3"></label></span>
@@ -103,7 +142,6 @@ No film to show.
 			    <span><input type="radio" id="str1" value="1"><label for="str1"></label></span>
 			</div>
 		</form>
-		<!-- TODO (Marc) -->
 	</section>
 	
 	<footer>

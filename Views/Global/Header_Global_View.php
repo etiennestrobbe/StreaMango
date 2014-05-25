@@ -16,11 +16,9 @@
 ?>
 <!doctype html>
 <html lang="fr">
-            <head>
-                <title>StreaMango</title>
-                <meta charset="utf-8">
-
-
+        <head>
+            <title>StreaMango</title>
+            <meta charset="utf-8">
 		
 		<?php
 			// Traitement des feuilles de styles à intégrer
