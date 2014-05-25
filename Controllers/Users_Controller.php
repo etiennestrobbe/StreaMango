@@ -47,6 +47,8 @@ class Users_Controller {
     public function show($params) {
         if($params["id"] != 0) {
             $user = Nf_UserDvdManagement::getInstance()->idToUser($params["id"]);
+            $user->commentaires = Nf_CommNoteManagement::getInstance()->getCommentairesParUser($user);
+            $user->notes = Nf_CommNoteManagement::getInstance()->getNotesParUser($user);
         }
         else {
             $user = null;
