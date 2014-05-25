@@ -38,7 +38,7 @@ $(document).ready(function(){
         else{
             $('#'+check).prop('checked',true);
             $('#'+nam).show(400);
-            $(this).css({ opacity: 0.5 });
+            $(this).css({ opacity: 0.3 });
         }
     });
     // Show and hide searchBarre

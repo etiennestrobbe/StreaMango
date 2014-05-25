@@ -62,7 +62,8 @@ class Add_Stars_View extends Main_Global_View {
                     </section>
 
                     <section class="filmographie">
-                        <p>Filmographie
+                        <p class="msg">Filmographie</p>
+						<p>
                             <?php
                                 if($this->films) {
                                     foreach ($this->films as $film) {
@@ -76,14 +77,14 @@ class Add_Stars_View extends Main_Global_View {
                                             if($film->affiches) {
                                                 ?>
                                                 <img id="imageRole<?php echo $film->getId()?>" src="<?php echo $film->affiches[0]->getSrc();?>"/>
-                            <div id="hiddenRole<?php echo $film->getId()?>"><p>Role :<input type="text" name="role<?php echo $film->getId();?>"></p></div></div>
+                            <div id="hiddenRole<?php echo $film->getId()?>"><p class="inFront">Role :</p><p><input type="text" name="role<?php echo $film->getId();?>"></p></div></div>
                                             <?php
 
                                             }
                                             else{
                                                 ?>
                                                 <img id="imageRole<?php echo $film->getId()?>" src="./img/aucuneImage.png"/>
-                                                <div id="hiddenRole<?php echo $film->getId()?>"><p>Role :<input type="text" name="role<?php echo $film->getId();?>"></p></div></div>
+                                                <div id="hiddenRole<?php echo $film->getId()?>"><p class="inFront">Role :</p><p><input type="text" name="role<?php echo $film->getId();?>"></p></div></div>
                                             <?php
 
                                             }
