@@ -121,11 +121,11 @@ class Add_Stars_View extends Main_Global_View {
 				
                 <form name="form_star" action="index.php?controller=Stars&action=add_the_real" method="post" onsubmit="return validateFormStar();">
                     <section class="portrait">
-                        <div id='file_tools'>
-                            <img src='./public/img/add.png' id='add_file' title='Add new input' style="width: 30px"/>
-                            <img src='./public/img/remove.png' id='del_file' title='Delete' style="width: 30px"/>
+                        <div id='file_tools2'>
+                            <img src='./public/img/add.png' id='add_file2' title='Add new input' style="width: 30px"/>
+                            <img src='./public/img/remove.png' id='del_file2' title='Delete' style="width: 30px"/>
                         </div>
-                        <div class='url_img' id='f1'>Url d'une image :<input name='urlReal[]' type='text'/></div>
+                        <div class='url_img2' id='fb1'>Url d'une image :<input name='urlReal[]' type='text'/></div>
 
                     </section>
 

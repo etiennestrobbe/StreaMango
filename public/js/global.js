@@ -43,7 +43,7 @@ $(document).ready(function(){
     var counter = 2;
     $('#del_file').hide();
     $('img#add_file').click(function(){
-        $('#file_tools').before('<div class="url_img" id="f'+counter+'"><input name="url[]" type="text"/>Url d\'une image :</div>');
+        $('#file_tools').before('<div class="url_img" id="f'+counter+'">Url d\'une image : <input name="url[]" type="text"/></div>');
         $('#del_file').fadeIn(250);
         counter++;
     });
@@ -53,6 +53,21 @@ $(document).ready(function(){
         }
         counter--;
         $('#f'+counter).remove();
+    });
+	
+	var counter2 = 2;
+    $('#del_file2').hide();
+    $('img#add_file2').click(function(){
+        $('#file_tools2').before('<div class="url_img2" id="fb'+counter2+'">Url d\'une image : <input name="url[]" type="text"/></div>');
+        $('#del_file2').fadeIn(250);
+        counter2++;
+    });
+    $('img#del_file2').click(function(){
+        if(counter2==3){
+            $('#del_file2').hide(250);
+        }
+        counter2--;
+        $('#fb'+counter2).remove();
     });
     // Show and hide roles
     $('[id^=hiddenRole]').hide();
