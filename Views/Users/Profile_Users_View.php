@@ -31,12 +31,23 @@
                     if ($_SESSION["connected"] == "true") {
                         $idSession = unserialize($_SESSION["user"]);
                         if ($idSession->getId() != $this->user->getId()) {
+                            $already = false;
+                            if($this->user->amis){
+                                foreach($this->user->amis as $ami){
+                                    if($ami->getAmi() == $this->user || $ami->getUser() == $this->user){
+                                        $already = true;
+                                    }
+                                }
+                            }
+                            if(!$already) {
 
-                            ?>
-                            <article id="add_friend">
-                                <a href="index.php?controller=Users&action=add_friend&friendN=<?php echo $this->user->getNom();?>&friendS=<?php echo $this->user->getPrenom();?>&userN=<?php echo $idSession->getNom();?>&userS=<?php echo $idSession->getPrenom();?>" id="add_friend_button">Ajouter en ami</a>
-                            </article>
-                        <?php
+                                ?>
+                                <article id="add_friend">
+                                    <a href="index.php?controller=Users&action=add_friend&friendN=<?php echo $this->user->getNom(); ?>&friendS=<?php echo $this->user->getPrenom(); ?>&userN=<?php echo $idSession->getNom(); ?>&userS=<?php echo $idSession->getPrenom(); ?>"
+                                       id="add_friend_button">Ajouter en ami</a>
+                                </article>
+                            <?php
+                            }
                         }
                     }
                 }
