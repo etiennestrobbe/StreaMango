@@ -1,0 +1,4 @@
+Initializing nautilus-gdu extension
+Nautilus-Share-Message: Called "net usershare info" but it failed: « net usershare » a retourné l'erreur 255 : net usershare: cannot open usershare directory /var/lib/samba/usershares. Error Aucun fichier ou dossier de ce type
+Please ask your system administrator to enable user sharing.
+

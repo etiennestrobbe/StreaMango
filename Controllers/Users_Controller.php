@@ -51,9 +51,9 @@ class Users_Controller {
         else {
             $user = null;
         }
-
-        $view = new Profile_Users_View($user);
-        $view->display();
+        $viewparams["user"] = $user;
+        $view = new Profile_Users_View($viewparams);
+        $view->display("", "Users");
     }
 
 } 
