@@ -27,6 +27,16 @@ Connectez-vous !
 
     <section classe="one">
         <h2>Amis :</h2>
+        <?php
+            if(!$this->user->amis) {
+                echo "Cet utilisateur n'a aucun ami.";
+            }
+            foreach ($this->user->amis as $key => $ami) {
+                ?>
+                <a href="index.php?controller=users&action=show&id=<?php echo $ami->getUser()->getId();?>"><?php echo $ami->getAmi()->getPrenom();?> <?php echo $ami->getAmi()->getNom();?></a><br/>
+                <?php
+            }
+        ?>
     </section>
 
     <section classe="one">
