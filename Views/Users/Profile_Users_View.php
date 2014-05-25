@@ -37,9 +37,9 @@ Connectez-vous !
             }
             foreach ($this->user->notes as $key => $note) {
         ?>
-            <p id="note">
+            <p id="note"><b>
                 <?php
-                    echo $note->film;
+                    echo $note->film->getTitre();
                     if($note->getNote() >= 9) {
                 ?>
                 <span><label></label></span>
@@ -71,7 +71,7 @@ Connectez-vous !
                 <?php
                     }
                 ?>
-            </p><br/>
+            </b></p><br/>
             <?php
                 }
             ?>
@@ -79,6 +79,24 @@ Connectez-vous !
 
     <section classe="one">
         <h2>Commentaires :</h2>
+        <?php
+            if(!$this->user->commentaires) {
+                echo "Cet utilisateur n'a noté aucun film.";
+            }
+            foreach ($this->user->commentaires as $key => $commentaire) {
+                ?>
+                <p><b>
+                <?php
+                echo $commentaire->getFilm()->getTitre();
+                ?>
+                </b> : 
+                <?php
+                echo $commentaire->getCommentaire();
+                ?>
+                </p>
+                <?php
+            }
+        ?>
     </section>
 
 <?php
