@@ -30,6 +30,7 @@
             if($film) {
                 $film->affiches = Nf_FilmManagement::getInstance()->getAffiches($film);
                 $film->commentaires = Nf_CommNoteManagement::getInstance()->getCommentairesParFilm($film);
+
                 $notes = Nf_CommNoteManagement::getInstance()->getNotesParFilm($film);
                 $i = 0;
                 $film->note = 0;
